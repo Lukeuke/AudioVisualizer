@@ -1,0 +1,4 @@
+# ninja log v6
+1	69	7687712952415958	CMakeFiles/AudioVisualizer.dir/src/main.cpp.obj	c4b27ba6e49da14f
+5	396	7687712952455993	CMakeFiles/AudioVisualizer.dir/src/AudioVisualizer.cpp.obj	1a3af6f9c4ee0ce
+397	512	7687712956371404	AudioVisualizer.exe	1aab6cf27bbb1b8d
