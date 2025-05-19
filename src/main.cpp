@@ -6,8 +6,9 @@
 
 int main()
 {
-    AudioVisualizer audio;
+    constexpr AudioVisualizer audio;
     audio.run();
+
 
     return 0;
 }
