@@ -3,12 +3,12 @@
 ### Automatic build
 
 #### Windows:
-``build-windows.ps1``
+run as admin ``build-windows.ps1``
 
 #### Linux:
 ```shell
-chmod +x build_and_run.sh
-./build_and_run.sh
+chmod +x build-liunx.sh
+./build-liunx.sh
 ```
 
 ### Build manual
