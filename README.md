@@ -1,6 +1,17 @@
 # AudioVisualizer
 
-### Build
+### Automatic build
+
+#### Windows:
+``build-windows.ps1``
+
+#### Linux:
+```shell
+chmod +x build_and_run.sh
+./build_and_run.sh
+```
+
+### Build manual
 
 **1st time**
 ```shell

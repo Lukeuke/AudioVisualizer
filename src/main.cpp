@@ -9,6 +9,5 @@ int main()
     constexpr AudioVisualizer audio;
     audio.run();
 
-
     return 0;
 }
