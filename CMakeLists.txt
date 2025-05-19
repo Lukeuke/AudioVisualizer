@@ -17,4 +17,7 @@ add_executable(AudioVisualizer src/main.cpp
         src/AudioVisualizer.cpp
 )
 target_compile_features(AudioVisualizer PRIVATE cxx_std_17)
-target_link_libraries(AudioVisualizer PRIVATE SFML::Graphics)
+target_link_libraries(AudioVisualizer PRIVATE
+        SFML::Graphics
+        SFML::Audio
+)
