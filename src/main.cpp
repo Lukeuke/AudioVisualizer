@@ -18,6 +18,11 @@ int main(const int argc, char** argv)
     app.add_option("-V,--volume", volume, "Set volume (0-100)")
         ->check(CLI::Range(0, 100));
 
+    unsigned int windowWidth = 800;
+    unsigned int windowHeight = 600;
+    app.add_option("--width", windowWidth, "Window width")->check(CLI::Range(100, 3840));
+    app.add_option("--height", windowHeight, "Window height")->check(CLI::Range(100, 2160));
+
     try {
         app.parse(argc, argv);
     } catch (const CLI::ParseError &e) {
@@ -25,7 +30,11 @@ int main(const int argc, char** argv)
     }
 
     AudioVisualizer audio;
-    audio.withSource(sourcePath)->withVolume(volume)->run();
+
+    audio.withSource(sourcePath)
+        ->windowSize(windowWidth, windowHeight)
+        ->withVolume(volume)
+        ->run();
 
     return 0;
 }

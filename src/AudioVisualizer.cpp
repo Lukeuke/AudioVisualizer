@@ -14,7 +14,7 @@ void AudioVisualizer::run() const {
 
     std::cout << "Running AudioVisualizer..." << std::endl;
 
-    auto window = sf::RenderWindow(sf::VideoMode({800u, 600u}), "Audio Visualizer");
+    auto window = sf::RenderWindow(sf::VideoMode({_width, _height}), "Audio Visualizer");
     window.setFramerateLimit(60);
 
     auto bottomBar = BottomBar(&window);
@@ -51,12 +51,18 @@ void AudioVisualizer::run() const {
     }
 }
 
-AudioVisualizer *AudioVisualizer::withSource(std::optional<std::string> &source) {
+AudioVisualizer *AudioVisualizer::withSource(const std::optional<std::string> &source) {
     _source = source;
     return this;
 }
 
 AudioVisualizer *AudioVisualizer::withVolume(const unsigned int &volume) {
     _volume = volume;
+    return this;
+}
+
+AudioVisualizer *AudioVisualizer::windowSize(const unsigned int &width, const unsigned int &height) {
+    _width = width;
+    _height = height;
     return this;
 }
