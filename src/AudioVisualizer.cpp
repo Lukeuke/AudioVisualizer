@@ -3,6 +3,7 @@
 //
 
 #include "../includes/AudioVisualizer.h"
+#include "GUI/bottomBar/BottomBar.h"
 
 #include <iostream>
 #include <ostream>
@@ -10,19 +11,15 @@
 #include <SFML/Audio.hpp>
 
 void AudioVisualizer::run() const {
+
     std::cout << "Running AudioVisualizer..." << std::endl;
+
 
     auto window = sf::RenderWindow(sf::VideoMode({800u, 600u}), "Audio Visualizer");
     window.setFramerateLimit(144);
 
-    sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("./_support/input.wav")) {
-        std::cerr << "Failed to load audio file" << std::endl;
-        return;
-    }
-
-    sf::Sound sound(buffer);
-    sound.play();
+    BottomBar bottomBar = BottomBar(&window);
+    bottomBar.build();
 
     while (window.isOpen())
     {
@@ -35,6 +32,7 @@ void AudioVisualizer::run() const {
         }
 
         window.clear();
+        bottomBar.draw();
         window.display();
     }
 }
