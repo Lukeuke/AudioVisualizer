@@ -1,6 +1,7 @@
 # AudioVisualizer
+Audio visualizer made in C++
 
-### Automatic build
+## Automatic build
 
 #### Windows:
 run as admin ``build-windows.ps1``
@@ -26,3 +27,6 @@ Output inside:
 ```shell
 cd /build/bin/Debug
 ```
+
+## Contributing
+Check out the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
