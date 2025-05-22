@@ -3,7 +3,7 @@
 //
 
 #include "../includes/AudioVisualizer.h"
-#include "GUI/bottomBar/BottomBar.h"
+#include "../includes/GUI/bottomBar/BottomBar.h"
 
 #include <iostream>
 #include <ostream>

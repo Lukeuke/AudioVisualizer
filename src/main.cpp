@@ -18,8 +18,8 @@ int main(const int argc, char** argv)
     app.add_option("-V,--volume", volume, "Set volume (0-100)")
         ->check(CLI::Range(0, 100));
 
-    unsigned int windowWidth = 800;
-    unsigned int windowHeight = 600;
+    unsigned int windowWidth = 1280;
+    unsigned int windowHeight = 720;
     app.add_option("--width", windowWidth, "Window width")->check(CLI::Range(100, 3840));
     app.add_option("--height", windowHeight, "Window height")->check(CLI::Range(100, 2160));
 

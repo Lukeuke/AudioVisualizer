@@ -30,6 +30,7 @@ add_executable(AudioVisualizer
         src/main.cpp
         includes/AudioVisualizer.h
         src/AudioVisualizer.cpp
+        src/BottomBar.cpp
 )
 
 target_compile_features(AudioVisualizer PRIVATE cxx_std_17)
