@@ -7,6 +7,8 @@
 #include <optional>
 #include <CLI/CLI.hpp>
 
+#include "../includes/FileDialog.h"
+
 int main(const int argc, char** argv)
 {
     CLI::App app{"Audio Visualizer"};
@@ -30,6 +32,10 @@ int main(const int argc, char** argv)
     }
 
     AudioVisualizer audio;
+
+    if (!sourcePath.has_value()) {
+        sourcePath = FileDialog::openDialog("wav,ogg");
+    }
 
     audio.withSource(sourcePath)
         ->windowSize(windowWidth, windowHeight)
