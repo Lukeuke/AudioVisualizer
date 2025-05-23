@@ -1,19 +1,18 @@
-#include <SFML/Graphics.hpp>
+#pragma once
+#include "raylib.h"
 
 class GuiElement {
 protected:
-    sf::RenderWindow* mainWindow;
-    sf::Vector2u windowSize;
-    sf::Vector2f size;
-    sf::Vector2f position;
+    Vector2 windowSize{};
+    Vector2 size{};
+    Vector2 position{};
 
-    virtual sf::Vector2f setElementSize(unsigned x, unsigned y) = 0;
-    virtual sf::Vector2f setElementPosition(float x, float y) = 0;
+    virtual Vector2 setElementSize(unsigned x, unsigned y) = 0;
+    virtual Vector2 setElementPosition(float x, float y) = 0;
 
 public:
-    GuiElement(sf::RenderWindow* mainWindow) {
-        this->mainWindow = mainWindow;
-        this->windowSize = mainWindow->getSize();
+    GuiElement(const unsigned screenWidth, const unsigned screenHeight) {
+        windowSize = { static_cast<float>(screenWidth), static_cast<float>(screenHeight) };
     }
 
     virtual ~GuiElement() = default;

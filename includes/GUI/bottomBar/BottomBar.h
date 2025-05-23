@@ -1,21 +1,29 @@
-#include <SFML/Graphics.hpp>
-
+#pragma once
 #include "../GuiElement.h"
 
-class BottomBar : public GuiElement {
-sf::RectangleShape bottomBar;
+class BottomBar final : public GuiElement {
+    Rectangle barRect;
+    Color barColor;
 
 public:
-    BottomBar(sf::RenderWindow* mainWindow)
-        : GuiElement(mainWindow) {
-        this->windowSize = mainWindow->getSize();
-        this->size = BottomBar::setElementSize(windowSize.x, windowSize.y);
-        this->position = BottomBar::setElementPosition(0.f, static_cast<float>(windowSize.y));
-    }
-    void build() override;
-    void draw() override;
+    BottomBar(unsigned screenWidth, unsigned screenHeight)
+        : GuiElement(screenWidth, screenHeight) {
+        size = setElementSize(screenWidth, screenHeight);
+        position = setElementPosition(0.0f, windowSize.y);
 
+        barRect = { position.x, position.y, size.x, size.y };
+        barColor = { 64, 64, 64, 255 };
+    }
+
+    void build() override;
+
+    void draw() override;
 private:
-    sf::Vector2f setElementSize(unsigned x, unsigned y) override;
-    sf::Vector2f setElementPosition(float x, float y) override;
+    Vector2 setElementSize(unsigned x, unsigned y) override {
+        return { static_cast<float>(x), static_cast<float>(y) * 0.15f };
+    }
+
+    Vector2 setElementPosition(float x, float y) override {
+        return { x, y - size.y };
+    }
 };

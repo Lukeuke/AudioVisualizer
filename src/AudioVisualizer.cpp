@@ -1,74 +1,60 @@
-﻿//
-// Created by Luuqe on 12.05.2025.
-//
-
+﻿#include "raylib.h"
 #include "../includes/AudioVisualizer.h"
+#include "../includes/FileDialog.h"
 #include "../includes/GUI/bottomBar/BottomBar.h"
 
 #include <iostream>
-#include <ostream>
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include "../includes/FileDialog.h"
 
 void AudioVisualizer::run() const {
 
     std::cout << "Running AudioVisualizer..." << std::endl;
 
-    auto window = sf::RenderWindow(sf::VideoMode({_width, _height}), "Audio Visualizer");
-    window.setFramerateLimit(60);
+    InitWindow(_width, _height, "Audio Visualizer");
+    SetTargetFPS(60);
 
-    auto bottomBar = BottomBar(&window);
+    BottomBar bottomBar(_width, _height);
     bottomBar.build();
 
-    // TODO: remove from prod this assignment :) (or feature?)
 #if defined(_WIN32)
     std::string fileName = "_support/input.wav";
-#elif defined(__linux__)
-    std::string fileName = "../../_support/input.wav";
-#elif defined(__APPLE__)
+#elif defined(__linux__) || defined(__APPLE__)
     std::string fileName = "../../_support/input.wav";
 #endif
+
     if (_source.has_value()) {
         fileName = _source.value();
     }
 
-    sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile(fileName)) {
-        std::cerr << "Failed to load audio file" << std::endl;
-        return;
-    }
-    sf::Sound sound(buffer);
-    sound.setVolume(static_cast<float>(_volume));
-    sound.play();
+    InitAudioDevice();
+    const Sound sound = LoadSound(fileName.c_str());
+    SetSoundVolume(sound, static_cast<float>(_volume) / 100.0f);
+    PlaySound(sound);
 
-    while (window.isOpen())
-    {
-        while (const std::optional event = window.pollEvent())
-        {
-            if (event->is<sf::Event::Closed>())
-            {
-                window.close();
-            }
-        }
+    while (!WindowShouldClose()) {
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
 
-        window.clear();
         bottomBar.draw();
-        window.display();
+
+        EndDrawing();
     }
+
+    UnloadSound(sound);
+    CloseAudioDevice();
+    CloseWindow();
 }
 
-AudioVisualizer *AudioVisualizer::withSource(const std::optional<std::string> &source) {
+AudioVisualizer* AudioVisualizer::withSource(const std::optional<std::string>& source) {
     _source = source;
     return this;
 }
 
-AudioVisualizer *AudioVisualizer::withVolume(const unsigned int &volume) {
+AudioVisualizer* AudioVisualizer::withVolume(const unsigned int& volume) {
     _volume = volume;
     return this;
 }
 
-AudioVisualizer *AudioVisualizer::windowSize(const unsigned int &width, const unsigned int &height) {
+AudioVisualizer* AudioVisualizer::windowSize(const unsigned int& width, const unsigned int& height) {
     _width = width;
     _height = height;
     return this;

@@ -18,7 +18,8 @@ chmod +x build-liunx.sh
 
 **1st time (or when adding new libraries)**
 ```shell
-cmake -B build && cmake --build build
+cmake -B build
+cmake --build build
 ```
 **2nd time and onwards**
 ```

@@ -6,30 +6,27 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 include(FetchContent)
 
 #region Libraries
-FetchContent_Declare(SFML
-        GIT_REPOSITORY https://github.com/SFML/SFML.git
-        GIT_TAG 3.0.1
+# Raylib
+FetchContent_Declare(raylib
+        GIT_REPOSITORY https://github.com/raysan5/raylib.git
+        GIT_TAG 5.0
         GIT_SHALLOW ON
-        EXCLUDE_FROM_ALL
-        SYSTEM
 )
-FetchContent_MakeAvailable(SFML)
+FetchContent_MakeAvailable(raylib)
 
+# CLI11
 FetchContent_Declare(CLI11
         GIT_REPOSITORY https://github.com/CLIUtils/CLI11.git
         GIT_TAG v2.3.2
         GIT_SHALLOW ON
-        EXCLUDE_FROM_ALL
-        SYSTEM
 )
 FetchContent_MakeAvailable(CLI11)
 
+# nativefiledialog (nfd)
 FetchContent_Declare(nfd
         GIT_REPOSITORY https://github.com/mlabbe/nativefiledialog.git
         GIT_TAG master
         GIT_SHALLOW ON
-        EXCLUDE_FROM_ALL
-        SYSTEM
 )
 FetchContent_MakeAvailable(nfd)
 
@@ -45,10 +42,8 @@ add_library(nfd STATIC
         ${nfd_SOURCE_DIR}/src/nfd_common.c
         ${NFD_PLATFORM_SRC}
 )
-
 target_include_directories(nfd PUBLIC ${nfd_SOURCE_DIR}/src/include)
 
-# Linux: link z GTK3
 if(UNIX AND NOT APPLE)
     find_package(PkgConfig REQUIRED)
     pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
@@ -70,8 +65,12 @@ target_compile_features(AudioVisualizer PRIVATE cxx_std_17)
 
 # Link libraries
 target_link_libraries(AudioVisualizer PRIVATE
-        SFML::Graphics
-        SFML::Audio
+        raylib
         CLI11::CLI11
         nfd
 )
+
+# Required on macOS
+if(APPLE)
+    target_link_libraries(AudioVisualizer PRIVATE "-framework OpenGL" "-framework Cocoa" "-framework IOKit" "-framework CoreAudio" "-framework CoreVideo")
+endif()
