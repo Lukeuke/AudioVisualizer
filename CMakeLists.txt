@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.29)
 project(AudioVisualizer LANGUAGES C CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -63,6 +63,7 @@ add_executable(AudioVisualizer
         includes/AudioVisualizer.h
         src/AudioVisualizer.cpp
         src/FileDialog.cpp
+        src/BottomBar.cpp
 )
 
 target_compile_features(AudioVisualizer PRIVATE cxx_std_17)

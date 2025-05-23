@@ -9,8 +9,8 @@
 
 class AudioVisualizer {
     std::optional<std::string> _source;
-    unsigned int _volume = 0;
-    unsigned int _width = 800, _height = 600;
+    unsigned int _volume = 100;
+    unsigned int _width = 1280, _height = 720;
 public:
     void run() const;
 
