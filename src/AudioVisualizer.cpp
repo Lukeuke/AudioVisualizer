@@ -9,6 +9,7 @@
 #include <ostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "../includes/FileDialog.h"
 
 void AudioVisualizer::run() const {
 
@@ -21,7 +22,13 @@ void AudioVisualizer::run() const {
     bottomBar.build();
 
     // TODO: remove from prod this assignment :) (or feature?)
+#if defined(_WIN32)
     std::string fileName = "_support/input.wav";
+#elif defined(__linux__)
+    std::string fileName = "../../_support/input.wav";
+#elif defined(__APPLE__)
+    std::string fileName = "../../_support/input.wav";
+#endif
     if (_source.has_value()) {
         fileName = _source.value();
     }
