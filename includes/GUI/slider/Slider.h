@@ -5,38 +5,46 @@
 #ifndef AUDIOVISUALIZER_SLIDER_H
 #define AUDIOVISUALIZER_SLIDER_H
 
+#include <iostream>
 #include "../GuiElement.h"
 
 class Slider final: public GuiElement {
-    Rectangle sliderRect;
-    Color sliderColor;
-    Vector2 valueRange;
-
+    Color sliderColor{};
 public:
-    Slider(unsigned parentWidth, unsigned parentHeight)
-    : GuiElement(parentWidth, parentHeight)  {
-        int difference;
-        if(parentHeight - 20 < 0) difference = -(parentHeight - 20);
-        else difference = 20;
+    Rectangle sliderRect{};
+    Vector2 valueRange{};
+    Vector2 circlePosition{};
+    float circleRadius = 10;
 
-        size = setElementSize(parentWidth, parentHeight);
-        position = setElementPosition(parentWidth / 2, parentHeight - difference);
+    Slider(unsigned screenWidth, unsigned screenHeight)
+    : GuiElement(screenWidth, screenHeight)  {
+
+        position = setElementPosition(screenWidth, screenHeight);
+        size = setElementSize(400, 5);
 
         sliderRect = {position.x, position.y, size.x, size.y};
-        sliderColor = {255, 255, 255, 255};
+        sliderColor = {50, 50, 50, 255};
+        valueRange = {position.x, size.x};
+
+        valueRange = {position.x, position.x + size.x};
+        circlePosition = {position.x + size.x, position.y + 2.5f};
     }
 
     void build() override;
 
     void draw() override;
 
+    void changeSliderPosition(float x);
+
+    float returnNewVolume();
+
 private:
     Vector2 setElementSize(unsigned x, unsigned y) override {
-        return { static_cast<float>(x), static_cast<float>(y)/2 };
+        return { static_cast<float>(x), static_cast<float>(y)};
     }
 
-    Vector2 setElementPosition(float x, float y) override {
-        return { x, y - size.y };
+    Vector2 setElementPosition(unsigned x, unsigned y) override {
+        return { static_cast<float>(x) / 2, static_cast<float>(y) - 60 };
     }
 };
 

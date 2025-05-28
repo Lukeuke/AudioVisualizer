@@ -12,7 +12,8 @@ class AudioVisualizer {
     unsigned int _volume = 100;
     unsigned int _width = 1280, _height = 720;
 public:
-    void run() const;
+    void run();
+    void changeVolume(float newVolume);
 
     AudioVisualizer *withSource(const std::optional<std::string> &source);
     AudioVisualizer *withVolume(const unsigned int &volume);

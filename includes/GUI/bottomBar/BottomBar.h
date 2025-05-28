@@ -23,7 +23,7 @@ private:
         return { static_cast<float>(x), static_cast<float>(y) * 0.15f };
     }
 
-    Vector2 setElementPosition(float x, float y) override {
-        return { x, y - size.y };
+    Vector2 setElementPosition(unsigned x, unsigned y) override {
+        return { static_cast<float>(x), static_cast<float>(y) - size.y };
     }
 };
