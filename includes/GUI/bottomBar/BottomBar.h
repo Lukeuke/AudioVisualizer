@@ -6,9 +6,9 @@ class BottomBar final : public GuiElement {
     Color barColor;
 
 public:
-    BottomBar(unsigned screenWidth, unsigned screenHeight)
-        : GuiElement(screenWidth, screenHeight) {
-        size = setElementSize(screenWidth, screenHeight);
+    BottomBar(unsigned parentWidth, unsigned parentHeight)
+        : GuiElement(parentWidth, parentHeight) {
+        size = setElementSize(parentWidth, parentHeight);
         position = setElementPosition(0.0f, windowSize.y);
 
         barRect = { position.x, position.y, size.x, size.y };
@@ -23,7 +23,7 @@ private:
         return { static_cast<float>(x), static_cast<float>(y) * 0.15f };
     }
 
-    Vector2 setElementPosition(float x, float y) override {
-        return { x, y - size.y };
+    Vector2 setElementPosition(unsigned x, unsigned y) override {
+        return { static_cast<float>(x), static_cast<float>(y) - size.y };
     }
 };

@@ -35,7 +35,8 @@ if(WIN32)
 elseif(APPLE)
     set(NFD_PLATFORM_SRC ${nfd_SOURCE_DIR}/src/nfd_cocoa.m)
 else()
-    set(NFD_PLATFORM_SRC ${nfd_SOURCE_DIR}/src/nfd_gtk.c)
+    set(NFD_PLATFORM_SRC ${nfd_SOURCE_DIR}/src/nfd_gtk.c
+            includes/GUI/slider/Slider.h)
 endif()
 
 add_library(nfd STATIC
@@ -59,6 +60,7 @@ add_executable(AudioVisualizer
         src/AudioVisualizer.cpp
         src/FileDialog.cpp
         src/BottomBar.cpp
+        src/Slider.cpp
 )
 
 target_compile_features(AudioVisualizer PRIVATE cxx_std_17)

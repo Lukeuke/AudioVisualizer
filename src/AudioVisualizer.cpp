@@ -2,10 +2,12 @@
 #include "../includes/AudioVisualizer.h"
 #include "../includes/FileDialog.h"
 #include "../includes/GUI/bottomBar/BottomBar.h"
+#include "../includes/GUI/slider/Slider.h"
+#include "raymath.h"
 
 #include <iostream>
 
-void AudioVisualizer::run() const {
+void AudioVisualizer::run() {
 
     std::cout << "Running AudioVisualizer..." << std::endl;
 
@@ -14,6 +16,9 @@ void AudioVisualizer::run() const {
 
     BottomBar bottomBar(_width, _height);
     bottomBar.build();
+
+    Slider slider(_width, _height);
+    slider.build();
 
 #if defined(_WIN32)
     std::string fileName = "_support/input.wav";
@@ -30,11 +35,32 @@ void AudioVisualizer::run() const {
     SetSoundVolume(sound, static_cast<float>(_volume) / 100.0f);
     PlaySound(sound);
 
+    Vector2 mousePosition;
+    bool mouseDown;
+
     while (!WindowShouldClose()) {
+        ClearBackground(BLACK);
+
+        mousePosition = GetMousePosition();
+        mouseDown = IsMouseButtonDown(MOUSE_LEFT_BUTTON);
+
+        float relX = slider.circlePosition.x;
+
+        if(mouseDown) {
+            if (
+                    CheckCollisionPointCircle(mousePosition, slider.circlePosition, slider.circleRadius + 20)
+                    || CheckCollisionPointRec(mousePosition, slider.sliderRect)
+                    ) {
+                relX = Clamp(mousePosition.x, slider.valueRange.x, slider.valueRange.y);
+            }
+        }
+        slider.changeSliderPosition(relX);
+        changeVolume(slider.returnNewVolume());
+
         BeginDrawing();
-        ClearBackground(RAYWHITE);
 
         bottomBar.draw();
+        slider.draw();
 
         EndDrawing();
     }
@@ -42,6 +68,11 @@ void AudioVisualizer::run() const {
     UnloadSound(sound);
     CloseAudioDevice();
     CloseWindow();
+}
+
+void AudioVisualizer::changeVolume(float newVolume) {
+    _volume = static_cast<unsigned int>(newVolume * 100);
+    SetMasterVolume(newVolume);
 }
 
 AudioVisualizer* AudioVisualizer::withSource(const std::optional<std::string>& source) {
