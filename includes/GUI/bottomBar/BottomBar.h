@@ -6,9 +6,9 @@ class BottomBar final : public GuiElement {
     Color barColor;
 
 public:
-    BottomBar(unsigned screenWidth, unsigned screenHeight)
-        : GuiElement(screenWidth, screenHeight) {
-        size = setElementSize(screenWidth, screenHeight);
+    BottomBar(unsigned parentWidth, unsigned parentHeight)
+        : GuiElement(parentWidth, parentHeight) {
+        size = setElementSize(parentWidth, parentHeight);
         position = setElementPosition(0.0f, windowSize.y);
 
         barRect = { position.x, position.y, size.x, size.y };

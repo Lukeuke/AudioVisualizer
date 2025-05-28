@@ -11,8 +11,8 @@ protected:
     virtual Vector2 setElementPosition(float x, float y) = 0;
 
 public:
-    GuiElement(const unsigned screenWidth, const unsigned screenHeight) {
-        windowSize = { static_cast<float>(screenWidth), static_cast<float>(screenHeight) };
+    GuiElement(const unsigned parentWidth, const unsigned parentHeight) {
+        windowSize = { static_cast<float>(parentWidth), static_cast<float>(parentHeight) };
     }
 
     virtual ~GuiElement() = default;

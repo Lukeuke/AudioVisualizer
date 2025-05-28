@@ -30,9 +30,12 @@ void AudioVisualizer::run() const {
     SetSoundVolume(sound, static_cast<float>(_volume) / 100.0f);
     PlaySound(sound);
 
+    Vector2 mousePosition;
+
     while (!WindowShouldClose()) {
+        mousePosition = GetMousePosition();
         BeginDrawing();
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
 
         bottomBar.draw();
 
