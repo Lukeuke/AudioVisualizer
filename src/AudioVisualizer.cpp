@@ -26,6 +26,8 @@ void AudioVisualizer::run() {
     InitWindow(_width, _height, "Audio Visualizer");
     SetTargetFPS(60);
 
+    _customFont = LoadFont("assets/fonts/OpenSans-Regular.ttf");
+
     BottomBar bottomBar(_width, _height);
     bottomBar.build();
 
@@ -72,6 +74,7 @@ void AudioVisualizer::run() {
         bottomBar.draw();
         sidebar.draw();
         slider.draw();
+        drawMusicPaused();
 
         EndDrawing();
     }
@@ -104,9 +107,30 @@ AudioVisualizer* AudioVisualizer::windowSize(const unsigned int& width, const un
 
 void AudioVisualizer::handleMusicPause(const Music &music) {
     if (IsKeyPressed(KEY_SPACE)) {
-        if (IsMusicStreamPlaying(music))
+        if (IsMusicStreamPlaying(music)) {
+            _paused = true;
             PauseMusicStream(music);
-        else
+        }
+        else {
+            _paused = false;
             ResumeMusicStream(music);
+        }
+    }
+}
+
+void AudioVisualizer::drawMusicPaused() const {
+    if (_paused) {
+        // overlay
+        DrawRectangle(0, 0, _width, _height, Fade(BLACK, 0.6f));
+
+        const auto pauseText = "PAUSED";
+        constexpr auto fontSize = 50.0f;
+        const auto textWidth = MeasureText(pauseText, fontSize);
+
+        // align center
+        float posX = (_width / 2) - (textWidth / 2);
+        float posY = (_height / 2) - (fontSize / 2);
+
+        DrawTextEx(_customFont, pauseText, { posX, posY }, fontSize, 2, WHITE);
     }
 }

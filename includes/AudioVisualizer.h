@@ -12,6 +12,8 @@ class AudioVisualizer {
     std::optional<std::string> _source;
     unsigned int _volume = 100;
     unsigned int _width = 1280, _height = 720;
+    Font _customFont{};
+    bool _paused = false;
 public:
     void run();
     void changeVolume(Music &music, float newVolume);
@@ -20,7 +22,8 @@ public:
     AudioVisualizer *withVolume(const unsigned int &volume);
     AudioVisualizer *windowSize(const unsigned int &width, const unsigned int &height);
 private:
-    static void handleMusicPause(const Music &music);
+    void handleMusicPause(const Music &music);
+    void drawMusicPaused() const;
 };
 
 #endif //AUDIOVISUALIZER_H

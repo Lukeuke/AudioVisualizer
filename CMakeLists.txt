@@ -76,3 +76,7 @@ target_link_libraries(AudioVisualizer PRIVATE
 if(APPLE)
     target_link_libraries(AudioVisualizer PRIVATE "-framework OpenGL" "-framework Cocoa" "-framework IOKit" "-framework CoreAudio" "-framework CoreVideo")
 endif()
+
+# Copy to output support and assets files
+file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_BINARY_DIR})
+file(COPY ${CMAKE_SOURCE_DIR}/_support DESTINATION ${CMAKE_BINARY_DIR})
