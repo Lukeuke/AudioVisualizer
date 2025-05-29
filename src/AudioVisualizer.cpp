@@ -1,8 +1,10 @@
 ﻿#include "raylib.h"
 #include "../includes/AudioVisualizer.h"
 #include "../includes/FileDialog.h"
+#include "../includes/FilenameHelper.h"
 #include "../includes/GUI/bottomBar/BottomBar.h"
 #include "../includes/GUI/slider/Slider.h"
+#include "../includes/GUI/Sidebar.h"
 #include "raymath.h"
 
 #include <iostream>
@@ -10,15 +12,6 @@
 void AudioVisualizer::run() {
 
     std::cout << "Running AudioVisualizer..." << std::endl;
-
-    InitWindow(_width, _height, "Audio Visualizer");
-    SetTargetFPS(60);
-
-    BottomBar bottomBar(_width, _height);
-    bottomBar.build();
-
-    Slider slider(_width, _height);
-    slider.build();
 
 #if defined(_WIN32)
     std::string fileName = "_support/input.wav";
@@ -29,6 +22,20 @@ void AudioVisualizer::run() {
     if (_source.has_value()) {
         fileName = _source.value();
     }
+
+    InitWindow(_width, _height, "Audio Visualizer");
+    SetTargetFPS(60);
+
+    BottomBar bottomBar(_width, _height);
+    bottomBar.build();
+
+    std::vector fileNames = {FilenameHelper::getFileName(fileName)};
+
+    Sidebar sidebar(_width, _height, fileNames);
+    sidebar.build();
+
+    Slider slider(_width, _height);
+    slider.build();
 
     InitAudioDevice();
     const Sound sound = LoadSound(fileName.c_str());
@@ -60,6 +67,7 @@ void AudioVisualizer::run() {
         BeginDrawing();
 
         bottomBar.draw();
+        sidebar.draw();
         slider.draw();
 
         EndDrawing();
