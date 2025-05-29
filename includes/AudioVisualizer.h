@@ -6,6 +6,7 @@
 #define AUDIOVISUALIZER_H
 #include <optional>
 #include <string>
+#include "raylib.h"
 
 class AudioVisualizer {
     std::optional<std::string> _source;
@@ -13,11 +14,13 @@ class AudioVisualizer {
     unsigned int _width = 1280, _height = 720;
 public:
     void run();
-    void changeVolume(float newVolume);
+    void changeVolume(Music &music, float newVolume);
 
     AudioVisualizer *withSource(const std::optional<std::string> &source);
     AudioVisualizer *withVolume(const unsigned int &volume);
     AudioVisualizer *windowSize(const unsigned int &width, const unsigned int &height);
+private:
+    static void handleMusicPause(const Music &music);
 };
 
 #endif //AUDIOVISUALIZER_H

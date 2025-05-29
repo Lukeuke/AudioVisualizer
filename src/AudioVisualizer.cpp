@@ -38,15 +38,16 @@ void AudioVisualizer::run() {
     slider.build();
 
     InitAudioDevice();
-    const Sound sound = LoadSound(fileName.c_str());
-    SetSoundVolume(sound, static_cast<float>(_volume) / 100.0f);
-    PlaySound(sound);
+    Music music = LoadMusicStream(fileName.c_str());
+    SetMusicVolume(music, static_cast<float>(_volume) / 100.0f);
+    PlayMusicStream(music);
 
     Vector2 mousePosition;
     bool mouseDown;
 
     while (!WindowShouldClose()) {
         ClearBackground(BLACK);
+        UpdateMusicStream(music);
 
         mousePosition = GetMousePosition();
         mouseDown = IsMouseButtonDown(MOUSE_LEFT_BUTTON);
@@ -62,7 +63,9 @@ void AudioVisualizer::run() {
             }
         }
         slider.changeSliderPosition(relX);
-        changeVolume(slider.returnNewVolume());
+        changeVolume(music, slider.returnNewVolume());
+
+        handleMusicPause(music);
 
         BeginDrawing();
 
@@ -73,14 +76,14 @@ void AudioVisualizer::run() {
         EndDrawing();
     }
 
-    UnloadSound(sound);
+    UnloadMusicStream(music);
     CloseAudioDevice();
     CloseWindow();
 }
 
-void AudioVisualizer::changeVolume(float newVolume) {
+void AudioVisualizer::changeVolume(Music &music, const float newVolume) {
     _volume = static_cast<unsigned int>(newVolume * 100);
-    SetMasterVolume(newVolume);
+    SetMusicVolume(music, newVolume);
 }
 
 AudioVisualizer* AudioVisualizer::withSource(const std::optional<std::string>& source) {
@@ -97,4 +100,13 @@ AudioVisualizer* AudioVisualizer::windowSize(const unsigned int& width, const un
     _width = width;
     _height = height;
     return this;
+}
+
+void AudioVisualizer::handleMusicPause(const Music &music) {
+    if (IsKeyPressed(KEY_SPACE)) {
+        if (IsMusicStreamPlaying(music))
+            PauseMusicStream(music);
+        else
+            ResumeMusicStream(music);
+    }
 }
