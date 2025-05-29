@@ -34,7 +34,7 @@ int main(const int argc, char** argv)
     AudioVisualizer audio;
 
     if (!sourcePath.has_value()) {
-        sourcePath = FileDialog::openDialog("wav,ogg");
+        sourcePath = FileDialog::openDialog("wav,ogg,mp3");
     }
 
     audio.withSource(sourcePath)

@@ -37,11 +37,11 @@ public:
     void draw() override {
         DrawRectangleRec(barRect, barColor);
 
-        const float padding = 10.0f;
+        constexpr float padding = 10.0f;
         float textY = position.y + padding;
-        int fontSize = 16;
 
         for (const auto& file : audioFiles) {
+            constexpr int fontSize = 16;
             if (textY + fontSize > position.y + size.y) break;
 
             DrawTextEx(customFont, file.c_str(), { position.x + padding, textY }, 20, 2, WHITE);
