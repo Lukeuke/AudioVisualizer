@@ -9,6 +9,8 @@
 
 #include <iostream>
 
+#include "../includes/GUI/Timeline.h"
+
 void AudioVisualizer::run() {
 
     std::cout << "Running AudioVisualizer..." << std::endl;
@@ -27,11 +29,13 @@ void AudioVisualizer::run() {
     SetTargetFPS(60);
 
     _customFont = LoadFont("assets/fonts/OpenSans-Regular.ttf");
+    std::vector fileNames = {FilenameHelper::getFileName(fileName)};
+
+    InitAudioDevice();
+    Music music = LoadMusicStream(fileName.c_str());
 
     BottomBar bottomBar(_width, _height);
     bottomBar.build();
-
-    std::vector fileNames = {FilenameHelper::getFileName(fileName)};
 
     Sidebar sidebar(_width, _height, fileNames);
     sidebar.build();
@@ -39,11 +43,11 @@ void AudioVisualizer::run() {
     Slider slider(_width, _height);
     slider.build();
 
-    InitAudioDevice();
-    Music music = LoadMusicStream(fileName.c_str());
+    Timeline timeline(_width, music);
+    timeline.build();
+
     SetMusicVolume(music, static_cast<float>(_volume) / 100.0f);
     PlayMusicStream(music);
-
 
     while (!WindowShouldClose()) {
         ClearBackground(BLACK);
@@ -52,15 +56,25 @@ void AudioVisualizer::run() {
         float relX = slider.circlePosition.x;
 
         if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
-            Vector2 mousePosition = GetMousePosition();
+            Vector2 mousePos = GetMousePosition();
 
+            // handle volume
             if (
-                    CheckCollisionPointCircle(mousePosition, slider.circlePosition, slider.circleRadius + 20)
-                    || CheckCollisionPointRec(mousePosition, slider.sliderRect)
+                    CheckCollisionPointCircle(mousePos, slider.circlePosition, slider.circleRadius + 20)
+                    || CheckCollisionPointRec(mousePos, slider.sliderRect)
                     ) {
-                relX = Clamp(mousePosition.x, slider.valueRange.x, slider.valueRange.y);
+                relX = Clamp(mousePos.x, slider.valueRange.x, slider.valueRange.y);
+            }
+
+            // handle timeline change
+            if (mousePos.y >= timeline.timelineY && mousePos.y <= timeline.timelineY + timeline.timelineHeight &&
+            mousePos.x >= timeline.timelineX && mousePos.x <= timeline.timelineX + timeline.timelineWidth) {
+
+                        float clickRatio = (mousePos.x - timeline.timelineX) / timeline.timelineWidth;
+                        SeekMusicStream(music, clickRatio * timeline.musicLength);
             }
         }
+
         slider.changeSliderPosition(relX);
         changeVolume(music, slider.returnNewVolume());
 
@@ -72,6 +86,7 @@ void AudioVisualizer::run() {
         sidebar.draw();
         slider.draw();
         drawMusicPaused();
+        timeline.draw();
 
         EndDrawing();
     }

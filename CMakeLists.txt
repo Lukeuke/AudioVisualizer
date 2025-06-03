@@ -61,6 +61,7 @@ add_executable(AudioVisualizer
         src/FileDialog.cpp
         src/BottomBar.cpp
         src/Slider.cpp
+        includes/GUI/Timeline.h
 )
 
 target_compile_features(AudioVisualizer PRIVATE cxx_std_17)
