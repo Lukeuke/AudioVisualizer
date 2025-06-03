@@ -143,6 +143,7 @@ void AudioVisualizer::drawMusicPaused() const {
         float posX = (_width / 2) - (textWidth / 2);
         float posY = (_height / 2) - (fontSize / 2);
 
-        DrawTextEx(_customFont, pauseText, { posX, posY }, fontSize, 2, WHITE);
+        // DrawTextEx(_customFont, pauseText, { posX, posY }, fontSize, 2, WHITE);
+        DrawText(pauseText, posX, posY, fontSize, WHITE);
     }
 }

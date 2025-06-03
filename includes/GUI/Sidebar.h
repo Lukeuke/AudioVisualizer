@@ -44,7 +44,9 @@ public:
             constexpr int fontSize = 16;
             if (textY + fontSize > position.y + size.y) break;
 
-            DrawTextEx(customFont, file.c_str(), { position.x + padding, textY }, 20, 2, WHITE);
+            DrawText(file.c_str(), position.x + padding, textY, 20, WHITE);
+
+            // DrawTextEx(customFont, file.c_str(), { position.x + padding, textY }, 20, 2, WHITE);
             textY += fontSize + 6;
         }
     }
