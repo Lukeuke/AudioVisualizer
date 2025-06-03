@@ -44,19 +44,16 @@ void AudioVisualizer::run() {
     SetMusicVolume(music, static_cast<float>(_volume) / 100.0f);
     PlayMusicStream(music);
 
-    Vector2 mousePosition;
-    bool mouseDown;
 
     while (!WindowShouldClose()) {
         ClearBackground(BLACK);
         UpdateMusicStream(music);
 
-        mousePosition = GetMousePosition();
-        mouseDown = IsMouseButtonDown(MOUSE_LEFT_BUTTON);
-
         float relX = slider.circlePosition.x;
 
-        if(mouseDown) {
+        if (IsMouseButtonDown(MOUSE_LEFT_BUTTON)) {
+            Vector2 mousePosition = GetMousePosition();
+
             if (
                     CheckCollisionPointCircle(mousePosition, slider.circlePosition, slider.circleRadius + 20)
                     || CheckCollisionPointRec(mousePosition, slider.sliderRect)
