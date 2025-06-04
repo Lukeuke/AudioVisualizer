@@ -36,7 +36,7 @@ elseif(APPLE)
     set(NFD_PLATFORM_SRC ${nfd_SOURCE_DIR}/src/nfd_cocoa.m)
 else()
     set(NFD_PLATFORM_SRC ${nfd_SOURCE_DIR}/src/nfd_gtk.c
-            includes/GUI/slider/Slider.h)
+            includes/GUI/Slider.h)
 endif()
 
 add_library(nfd STATIC

@@ -6,7 +6,7 @@
 #define AUDIOVISUALIZER_SLIDER_H
 
 #include <iostream>
-#include "../GuiElement.h"
+#include "GuiElement.h"
 
 class Slider final: public GuiElement {
     Color sliderColor{};

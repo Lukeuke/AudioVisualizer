@@ -3,7 +3,7 @@
 #include "../includes/FileDialog.h"
 #include "../includes/FilenameHelper.h"
 #include "../includes/GUI/bottomBar/BottomBar.h"
-#include "../includes/GUI/slider/Slider.h"
+#include "../includes/GUI/Slider.h"
 #include "../includes/GUI/Sidebar.h"
 #include "raymath.h"
 
