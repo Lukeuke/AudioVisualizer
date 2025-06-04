@@ -3,7 +3,7 @@
 //
 
 #include "raylib.h"
-#include "../includes/GUI/slider/Slider.h"
+#include "../includes/GUI/Slider.h"
 
 void Slider::build() {
     // TODO:
