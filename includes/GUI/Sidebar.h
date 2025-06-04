@@ -7,6 +7,7 @@
 
 #pragma once
 
+#include <string.h>
 #include <vector>
 
 #include "raylib.h"
@@ -44,7 +45,15 @@ public:
             constexpr int fontSize = 16;
             if (textY + fontSize > position.y + size.y) break;
 
-            DrawText(file.c_str(), position.x + padding, textY, 20, WHITE);
+            std::string textToDisplay;
+
+            if (file.size() > 19) {
+                textToDisplay = file.substr(0, 19);
+            } else {
+                textToDisplay = file;
+            }
+
+            DrawText(textToDisplay.c_str(), position.x + padding, textY, 20, WHITE);
 
             // DrawTextEx(customFont, file.c_str(), { position.x + padding, textY }, 20, 2, WHITE);
             textY += fontSize + 6;
