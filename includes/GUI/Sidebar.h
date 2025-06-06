@@ -25,8 +25,8 @@ public:
         size = setElementSize(parentWidth, parentHeight);
         position = setElementPosition(0.0f, 0.0f);  // Left side by default
 
-        barRect = { position.x, position.y, size.x, size.y };
-        barColor = { 64, 64, 64, 255 };
+        /*barRect = { position.x, position.y, size.x, size.y };
+        barColor = { 64, 64, 64, 255 }*/;
 
         customFont = LoadFont("assets/fonts/OpenSans-Regular.ttf");
     }
@@ -45,15 +45,7 @@ public:
             constexpr int fontSize = 16;
             if (textY + fontSize > position.y + size.y) break;
 
-            std::string textToDisplay;
-
-            if (file.size() > 19) {
-                textToDisplay = file.substr(0, 19);
-            } else {
-                textToDisplay = file;
-            }
-
-            DrawText(textToDisplay.c_str(), position.x + padding, textY, 20, WHITE);
+            DrawText(file.c_str(), position.x + padding, textY, 20, WHITE);
 
             // DrawTextEx(customFont, file.c_str(), { position.x + padding, textY }, 20, 2, WHITE);
             textY += fontSize + 6;
