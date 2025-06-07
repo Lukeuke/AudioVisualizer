@@ -15,6 +15,10 @@ public:
         barColor = { 64, 64, 64, 255 };
     }
 
+    Vector2 getSize() const {
+        return size;
+    }
+    
     void build() override;
 
     void draw() override;

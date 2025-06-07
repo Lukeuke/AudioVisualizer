@@ -25,6 +25,9 @@ int main(const int argc, char** argv)
     app.add_option("--width", windowWidth, "Window width")->check(CLI::Range(100, 3840));
     app.add_option("--height", windowHeight, "Window height")->check(CLI::Range(100, 2160));
 
+    bool debug = false;
+    app.add_flag("--debug", debug, "Debug mode");
+
     try {
         app.parse(argc, argv);
     } catch (const CLI::ParseError &e) {
@@ -34,7 +37,7 @@ int main(const int argc, char** argv)
     AudioVisualizer audio;
 
     if (!sourcePath.has_value()) {
-        sourcePath = FileDialog::openDialog("wav,ogg,mp3");
+        sourcePath = FileDialog::openDialog("wav,ogg,mp3,flac");
     }
 
     audio.withSource(sourcePath)

@@ -10,6 +10,7 @@
 #include <iostream>
 
 #include "../includes/GUI/Timeline.h"
+#include "../includes/GUI/Visuals.h"
 
 void AudioVisualizer::run() {
 
@@ -46,12 +47,13 @@ void AudioVisualizer::run() {
     Timeline timeline(_width, music);
     timeline.build();
 
+    Visuals visuals(_width, _height, music, fileName.c_str(), bottomBar.getSize().y);
+    visuals.build();
+
     SetMusicVolume(music, static_cast<float>(_volume) / 100.0f);
-    PlayMusicStream(music);
 
     while (!WindowShouldClose()) {
         ClearBackground(BLACK);
-        UpdateMusicStream(music);
 
         float relX = slider.circlePosition.x;
 
@@ -69,9 +71,8 @@ void AudioVisualizer::run() {
             // handle timeline change
             if (mousePos.y >= timeline.timelineY && mousePos.y <= timeline.timelineY + timeline.timelineHeight &&
             mousePos.x >= timeline.timelineX && mousePos.x <= timeline.timelineX + timeline.timelineWidth) {
-
-                        float clickRatio = (mousePos.x - timeline.timelineX) / timeline.timelineWidth;
-                        SeekMusicStream(music, clickRatio * timeline.musicLength);
+                float clickRatio = (mousePos.x - timeline.timelineX) / timeline.timelineWidth;
+                SeekMusicStream(music, clickRatio * timeline.musicLength);
             }
         }
 
@@ -82,6 +83,7 @@ void AudioVisualizer::run() {
 
         BeginDrawing();
 
+        visuals.draw();
         bottomBar.draw();
         sidebar.draw();
         slider.draw();
