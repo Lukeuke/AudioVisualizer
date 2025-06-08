@@ -31,5 +31,14 @@ Output inside:
 cd /build/bin/Debug
 ```
 
+## Documentation
+
+Generate
+```shell
+doxygen Doxyfile
+cd latex
+make.bat
+```
+
 ## Contributing
 Check out the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.

@@ -8,6 +8,7 @@
 #include <string>
 #include "raylib.h"
 
+// Bazowa klasa całego programu
 class AudioVisualizer {
     std::optional<std::string> _source;
     unsigned int _volume = 100;
@@ -18,6 +19,7 @@ public:
     void run();
     void changeVolume(Music &music, float newVolume);
 
+    // Wzorzec budowniczy
     AudioVisualizer *withSource(const std::optional<std::string> &source);
     AudioVisualizer *withVolume(const unsigned int &volume);
     AudioVisualizer *windowSize(const unsigned int &width, const unsigned int &height);

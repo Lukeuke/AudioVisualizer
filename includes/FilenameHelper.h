@@ -9,6 +9,10 @@
 
 #include <string>
 
+/**
+ * @class FilenameHelper
+ * @brief Klasa pomocnicza do pobierania nazwy pliku z rozszerzeniem.
+ */
 class FilenameHelper {
 public:
     static std::string getFileName(const std::string& filePath) {

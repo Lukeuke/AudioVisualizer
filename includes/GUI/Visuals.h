@@ -5,38 +5,68 @@
 #include "raylib.h"
 #include "../external/SimpleFFT.h"
 
+/**
+ * @class Visuals
+ * @brief Klasa odpowiedzialna za wizualizację audio (FFT) w czasie rzeczywistym.
+ *
+ * Visuals wyświetla dynamiczną wizualizację dźwięku odtwarzanego z obiektu Music,
+ * używając transformacji Fouriera (FFT) do analizy częstotliwości.
+ */
 class Visuals final : public GuiElement {
-    Music _music;              // Obiekt streamowanego dźwięku
-    float* _samples;           // Wskaźnik na próbki audio załadowane do pamięci
-    unsigned int _sampleCount; // Liczba ramek (próbek)
-    unsigned int _channels;    // Liczba kanałów (np. 2 dla stereo)
-    unsigned int _sampleRate;  // Częstotliwość próbkowania (np. 44100 Hz)
-    bool _debug;
+    Music _music;              ///< Streamowany obiekt muzyczny
+    float* _samples;           ///< Tablica próbek audio (float), załadowana z pliku WAV
+    unsigned int _sampleCount; ///< Liczba ramek audio
+    unsigned int _channels;    ///< Liczba kanałów (1 = mono, 2 = stereo)
+    unsigned int _sampleRate;  ///< Częstotliwość próbkowania (np. 44100 Hz)
+    bool _debug;               ///< Flaga trybu debugowania (opcjonalna)
 
 public:
+    /**
+     * @brief Konstruktor klasy Visuals.
+     *
+     * Wczytuje plik WAV, zapisuje jego próbki i przygotowuje dane do wizualizacji.
+     *
+     * @param screenWidth Szerokość okna aplikacji.
+     * @param screenHeight Wysokość okna aplikacji.
+     * @param music Obiekt Music do odtwarzania.
+     * @param filename Ścieżka do pliku WAV zawierającego dane audio.
+     * @param bottomBarHeight Wysokość dolnego paska GUI (dla przesunięcia wizualizacji).
+     */
     Visuals(unsigned screenWidth, unsigned screenHeight, const Music &music, const char* filename, const float bottomBarHeight)
         : GuiElement(screenWidth, screenHeight - bottomBarHeight + 5) {
 
-        const Wave wave = LoadWave(filename);   // Załaduj dane WAV do pamięci
-        _sampleCount = wave.frameCount;         // Ile jest ramek
-        _channels = wave.channels;              // Ile jest kanałów
-        _sampleRate = wave.sampleRate;          // Częstotliwość próbkowania
+        const Wave wave = LoadWave(filename);   ///< Załaduj dane WAV do pamięci
+        _sampleCount = wave.frameCount;         ///< Ilość ramek audio
+        _channels = wave.channels;              ///< Liczba kanałów (mono/stereo)
+        _sampleRate = wave.sampleRate;          ///< Częstotliwość próbkowania
 
-        _samples = LoadWaveSamples(wave);       // Załaduj wskaźnik na próbki (float[])
-        _music = music;                         // Przypisz stream muzyki, żeby móc go kontrolować i aktualizować
-        UnloadWave(wave);                       // Zwolnij Wave, bo próbki są osobno
+        _samples = LoadWaveSamples(wave);       ///< Wskaźnik na próbki audio
+        _music = music;                         ///< Przypisanie strumienia muzyki
+        UnloadWave(wave);                       ///< Zwolnienie pamięci obiektu Wave
     }
 
+    /**
+     * @brief Destruktor klasy Visuals.
+     *
+     * Zwalnia pamięć zajmowaną przez próbki audio i strumień muzyki.
+     */
     ~Visuals() {
-        // Zwolnij pamięć
         UnloadMusicStream(_music);
         UnloadWaveSamples(_samples);
     }
 
+    /**
+     * @brief Rozpoczyna odtwarzanie muzyki.
+     */
     void build() override {
         PlayMusicStream(_music);
     }
 
+    /**
+     * @brief Rysuje wizualizację audio w czasie rzeczywistym.
+     *
+     * Aktualizuje strumień muzyczny, przelicza FFT i rysuje słupki reprezentujące częstotliwości.
+     */
     void draw() override {
         UpdateMusicStream(_music);
         if (!IsMusicStreamPlaying(_music)) return;
@@ -87,9 +117,22 @@ public:
 #endif
     }
 
+    /**
+     * @brief Nieużywana implementacja ustawiania rozmiaru elementu GUI.
+     * @return Pusty wektor.
+     */
     Vector2 setElementSize(unsigned, unsigned) override { return {}; }
+
+    /**
+     * @brief Nieużywana implementacja ustawiania pozycji elementu GUI.
+     * @return Pusty wektor.
+     */
     Vector2 setElementPosition(unsigned, unsigned) override { return {}; }
 
+    /**
+     * @brief Zwraca referencję do obiektu Music.
+     * @return Referencja do muzyki.
+     */
     Music& getMusic() { return _music; }
 };
 

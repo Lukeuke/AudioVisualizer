@@ -5,10 +5,9 @@
 #ifndef AUDIOVISUALIZER_SLIDER_H
 #define AUDIOVISUALIZER_SLIDER_H
 
-#include <iostream>
 #include "GuiElement.h"
 
-class Slider final: public GuiElement {
+class Slider final : public GuiElement {
     Color sliderColor{};
 public:
     Rectangle sliderRect{};
