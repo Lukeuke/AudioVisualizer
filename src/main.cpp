@@ -16,7 +16,7 @@ int main(const int argc, char** argv)
     std::optional<std::string> sourcePath;
     app.add_option("-s,--source", sourcePath, "Path to source file");
 
-    unsigned int volume = 100;
+    unsigned int volume = 50;
     app.add_option("-V,--volume", volume, "Set volume (0-100)")
         ->check(CLI::Range(0, 100));
 
@@ -24,9 +24,6 @@ int main(const int argc, char** argv)
     unsigned int windowHeight = 720;
     app.add_option("--width", windowWidth, "Window width")->check(CLI::Range(100, 3840));
     app.add_option("--height", windowHeight, "Window height")->check(CLI::Range(100, 2160));
-
-    bool debug = false;
-    app.add_flag("--debug", debug, "Debug mode");
 
     try {
         app.parse(argc, argv);

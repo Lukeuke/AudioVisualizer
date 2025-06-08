@@ -27,7 +27,7 @@ public:
         valueRange = {position.x, size.x};
 
         valueRange = {position.x, position.x + size.x};
-        circlePosition = {position.x + size.x, position.y + 2.5f};
+        circlePosition = {position.x + size.x / 2.0f, position.y + 2.5f};
     }
 
     void build() override;

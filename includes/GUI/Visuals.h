@@ -18,13 +18,13 @@ public:
         : GuiElement(screenWidth, screenHeight - bottomBarHeight + 5) {
 
         const Wave wave = LoadWave(filename);   // Załaduj dane WAV do pamięci
-        _sampleCount = wave.frameCount;   // Ile jest ramek
-        _channels = wave.channels;        // Ile jest kanałów
-        _sampleRate = wave.sampleRate;    // Częstotliwość próbkowania
+        _sampleCount = wave.frameCount;         // Ile jest ramek
+        _channels = wave.channels;              // Ile jest kanałów
+        _sampleRate = wave.sampleRate;          // Częstotliwość próbkowania
 
-        _samples = LoadWaveSamples(wave); // Załaduj wskaźnik na próbki (float[])
-        _music = music;                   // Przypisz stream muzyki, żeby móc go kontrolować i aktualizować
-        UnloadWave(wave);                 // Zwolnij Wave, bo próbki są osobno
+        _samples = LoadWaveSamples(wave);       // Załaduj wskaźnik na próbki (float[])
+        _music = music;                         // Przypisz stream muzyki, żeby móc go kontrolować i aktualizować
+        UnloadWave(wave);                       // Zwolnij Wave, bo próbki są osobno
     }
 
     ~Visuals() {

@@ -6,7 +6,7 @@
 #include "../includes/GUI/Slider.h"
 
 void Slider::build() {
-    // TODO:
+    // ignore
 }
 
 void Slider::draw() {
