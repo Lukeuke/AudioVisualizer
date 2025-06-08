@@ -8,4 +8,4 @@ cmake-build-debug
 /build-*/
 /cmake-build-*/
 latex
-#html - dont ignore (for github pages)
+html

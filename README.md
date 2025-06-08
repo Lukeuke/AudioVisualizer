@@ -40,5 +40,10 @@ cd latex
 make.bat
 ```
 
+After generated
+```shell
+mv html docs
+```
+
 ## Contributing
 Check out the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
