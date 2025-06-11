@@ -6,15 +6,21 @@
 #define AUDIOVISUALIZER_SLIDER_H
 
 #include "GuiElement.h"
-
+/**
+ * @class Slider
+ * @brief Element GUI wyświetlający pasek przewijania
+ * Pozwala on na to by ilustrować przebieg puszczanego utworu oraz "przechodzić" w czasie z jednego momentu utworu w drugi.
+ */
 class Slider final : public GuiElement {
-    Color sliderColor{};
+    Color sliderColor{};    ///<   kolor elementu
 public:
-    Rectangle sliderRect{};
-    Vector2 valueRange{};
-    Vector2 circlePosition{};
-    float circleRadius = 10;
-
+    Rectangle sliderRect{};     ///< właściwości umiejscowienia i rozmiaru elementu
+    Vector2 valueRange{};       ///< zakres paska przewijania
+    Vector2 circlePosition{};   ///< pozycja okręgu
+    float circleRadius = 10;    ///< promień okręgu
+    /**
+     * @brief Konstruktor parametryczny dla elementu Slider
+     */
     Slider(unsigned screenWidth, unsigned screenHeight)
     : GuiElement(screenWidth, screenHeight)  {
 
