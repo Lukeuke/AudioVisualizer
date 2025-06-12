@@ -91,15 +91,20 @@ $(function(){initNavTree('class_gui_element.html','','class_gui_element-members'
   <div class="headertitle"><div class="title">Dokumentacja klasy GuiElement<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Klasa Bazowa dla kadego elementu GUI tego Klasa ta poprzez wymuszenie definicji metod <a class="el" href="#a78975c11ed731f5d900ffcad1ea65fcd" title="Wirtualna metoda odpowiedzialna za konfigurację, inicjalizację komponentu.">build()</a> oraz <a class="el" href="#ac0cd9b27f65b09f1a2d5fb200ca8170e" title="Wirtualna metoda odpowiedzialna za narysowanie elementu na ekranie.">draw()</a> pozwala na uproszczenie konstruowania elementow graficznych wskazującym aktualną pozycję oraz czasem odtwarzania.  
+ <a href="#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_gui_element_8h_source.html">GuiElement.h</a>&gt;</code></p>
 <div class="dynheader">
 Diagram dziedziczenia dla GuiElement</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_gui_element.png" usemap="#GuiElement_map" alt=""/>
   <map id="GuiElement_map" name="GuiElement_map">
-<area href="class_bottom_bar.html" alt="BottomBar" shape="rect" coords="0,56,75,80"/>
-<area href="class_sidebar.html" alt="Sidebar" shape="rect" coords="85,56,160,80"/>
-<area href="class_slider.html" alt="Slider" shape="rect" coords="170,56,245,80"/>
+<area href="class_bottom_bar.html" title="Element GUI przedstawiający dolni pasek Odpowiada on za narysowanie dolniego paska progresu na dolnej..." alt="BottomBar" shape="rect" coords="0,56,75,80"/>
+<area href="class_sidebar.html" title="Element GUI wyświetlający listę plików audio dziedziczący po klasie abstrakcyjnej GuiElement." alt="Sidebar" shape="rect" coords="85,56,160,80"/>
+<area href="class_slider.html" title="Element GUI wyświetlający pasek przewijania Pozwala on na to by ilustrować przebieg puszczanego utwor..." alt="Slider" shape="rect" coords="170,56,245,80"/>
 <area href="class_timeline.html" title="Element GUI przedstawiający pasek postępu odtwarzania muzyki." alt="Timeline" shape="rect" coords="255,56,330,80"/>
 <area href="class_visuals.html" title="Klasa odpowiedzialna za wizualizację audio (FFT) w czasie rzeczywistym." alt="Visuals" shape="rect" coords="340,56,415,80"/>
   </map>
@@ -107,25 +112,76 @@ Diagram dziedziczenia dla GuiElement</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
-<tr class="memitem:a7f69caa76197fb3a0eb6baf2cd2de1c2" id="r_a7f69caa76197fb3a0eb6baf2cd2de1c2"><td class="memItemLeft" align="right" valign="top"><a id="a7f69caa76197fb3a0eb6baf2cd2de1c2" name="a7f69caa76197fb3a0eb6baf2cd2de1c2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GuiElement</b> (const unsigned screenWidth, const unsigned screenHeight)</td></tr>
+<tr class="memitem:a7f69caa76197fb3a0eb6baf2cd2de1c2" id="r_a7f69caa76197fb3a0eb6baf2cd2de1c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f69caa76197fb3a0eb6baf2cd2de1c2">GuiElement</a> (const unsigned screenWidth, const unsigned screenHeight)</td></tr>
+<tr class="memdesc:a7f69caa76197fb3a0eb6baf2cd2de1c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor parametryczny klasy <a class="el" href="class_gui_element.html" title="Klasa Bazowa dla kadego elementu GUI tego Klasa ta poprzez wymuszenie definicji metod build() oraz dr...">GuiElement</a>.  <br /></td></tr>
+<tr class="memitem:a6df31d12f9500549da3f537ccdf57285" id="r_a6df31d12f9500549da3f537ccdf57285"><td class="memItemLeft" align="right" valign="top"><a id="a6df31d12f9500549da3f537ccdf57285" name="a6df31d12f9500549da3f537ccdf57285"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~GuiElement</b> ()=default</td></tr>
+<tr class="memdesc:a6df31d12f9500549da3f537ccdf57285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wirtualny Deskrutor zapewniający odpowiednie usuwanie obiektów klas pochodnych. <br /></td></tr>
 <tr class="memitem:a78975c11ed731f5d900ffcad1ea65fcd" id="r_a78975c11ed731f5d900ffcad1ea65fcd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78975c11ed731f5d900ffcad1ea65fcd">build</a> ()=0</td></tr>
+<tr class="memdesc:a78975c11ed731f5d900ffcad1ea65fcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wirtualna metoda odpowiedzialna za konfigurację, inicjalizację komponentu.  <br /></td></tr>
 <tr class="memitem:ac0cd9b27f65b09f1a2d5fb200ca8170e" id="r_ac0cd9b27f65b09f1a2d5fb200ca8170e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0cd9b27f65b09f1a2d5fb200ca8170e">draw</a> ()=0</td></tr>
+<tr class="memdesc:ac0cd9b27f65b09f1a2d5fb200ca8170e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wirtualna metoda odpowiedzialna za narysowanie elementu na ekranie.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Metody chronione</h2></td></tr>
 <tr class="memitem:acfe57b3ccd0b36e13c701f61245bc927" id="r_acfe57b3ccd0b36e13c701f61245bc927"><td class="memItemLeft" align="right" valign="top">virtual Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfe57b3ccd0b36e13c701f61245bc927">setElementSize</a> (unsigned x, unsigned y)=0</td></tr>
+<tr class="memdesc:acfe57b3ccd0b36e13c701f61245bc927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda virtualna służąca do ustawienia rozmiaru elementu.  <br /></td></tr>
 <tr class="memitem:a1d5b6a65e74ec391dbce6847cc939552" id="r_a1d5b6a65e74ec391dbce6847cc939552"><td class="memItemLeft" align="right" valign="top">virtual Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d5b6a65e74ec391dbce6847cc939552">setElementPosition</a> (unsigned x, unsigned y)=0</td></tr>
+<tr class="memdesc:a1d5b6a65e74ec391dbce6847cc939552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metoda virtualna służąca do ustawienia elementu względem osi x oraz y.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Atrybuty chronione</h2></td></tr>
 <tr class="memitem:af9513ee2f15febe00bf02a53f7781ad4" id="r_af9513ee2f15febe00bf02a53f7781ad4"><td class="memItemLeft" align="right" valign="top"><a id="af9513ee2f15febe00bf02a53f7781ad4" name="af9513ee2f15febe00bf02a53f7781ad4"></a>
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>windowSize</b> {}</td></tr>
+<tr class="memdesc:af9513ee2f15febe00bf02a53f7781ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozmiar okna. <br /></td></tr>
 <tr class="memitem:a53c6757141e1ea766d714bee1e8e7b3f" id="r_a53c6757141e1ea766d714bee1e8e7b3f"><td class="memItemLeft" align="right" valign="top"><a id="a53c6757141e1ea766d714bee1e8e7b3f" name="a53c6757141e1ea766d714bee1e8e7b3f"></a>
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> {}</td></tr>
+<tr class="memdesc:a53c6757141e1ea766d714bee1e8e7b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozmiar elementu. <br /></td></tr>
 <tr class="memitem:ac18be2e67777e900512c6f6a90801a49" id="r_ac18be2e67777e900512c6f6a90801a49"><td class="memItemLeft" align="right" valign="top"><a id="ac18be2e67777e900512c6f6a90801a49" name="ac18be2e67777e900512c6f6a90801a49"></a>
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> {}</td></tr>
+<tr class="memdesc:ac18be2e67777e900512c6f6a90801a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pozycja elementu. <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Klasa Bazowa dla kadego elementu GUI tego Klasa ta poprzez wymuszenie definicji metod <a class="el" href="#a78975c11ed731f5d900ffcad1ea65fcd" title="Wirtualna metoda odpowiedzialna za konfigurację, inicjalizację komponentu.">build()</a> oraz <a class="el" href="#ac0cd9b27f65b09f1a2d5fb200ca8170e" title="Wirtualna metoda odpowiedzialna za narysowanie elementu na ekranie.">draw()</a> pozwala na uproszczenie konstruowania elementow graficznych wskazującym aktualną pozycję oraz czasem odtwarzania. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Dokumentacja konstruktora i destruktora</h2>
+<a id="a7f69caa76197fb3a0eb6baf2cd2de1c2" name="a7f69caa76197fb3a0eb6baf2cd2de1c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f69caa76197fb3a0eb6baf2cd2de1c2">&#9670;&#160;</a></span>GuiElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GuiElement::GuiElement </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>screenWidth</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned</td>          <td class="paramname"><span class="paramname"><em>screenHeight</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Konstruktor parametryczny klasy <a class="el" href="class_gui_element.html" title="Klasa Bazowa dla kadego elementu GUI tego Klasa ta poprzez wymuszenie definicji metod build() oraz dr...">GuiElement</a>. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">screenWidth</td><td>Szerokość ekranu </td></tr>
+    <tr><td class="paramname">screenHeight</td><td>Wysokość ekranu </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
 <a id="a78975c11ed731f5d900ffcad1ea65fcd" name="a78975c11ed731f5d900ffcad1ea65fcd"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a78975c11ed731f5d900ffcad1ea65fcd">&#9670;&#160;</a></span>build()</h2>
@@ -150,7 +206,9 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> {}</t
 </table>
 </div><div class="memdoc">
 
-<p>Implementowany w <a class="el" href="class_timeline.html#acdf7356c3f08aa5274a54ea957043361">Timeline</a> i <a class="el" href="class_visuals.html#aa499863336b7bb5b6504a903661ce6cc">Visuals</a>.</p>
+<p>Wirtualna metoda odpowiedzialna za konfigurację, inicjalizację komponentu. </p>
+
+<p>Implementowany w <a class="el" href="class_bottom_bar.html#abf65ff8514af7cc526f1362096fb1703">BottomBar</a>, <a class="el" href="class_sidebar.html#aff58f973dcbd10dfc95ad87ffec82cde">Sidebar</a>, <a class="el" href="class_slider.html#aa28d9e9fe8826a306f7ff26b62c1d200">Slider</a>, <a class="el" href="class_timeline.html#acdf7356c3f08aa5274a54ea957043361">Timeline</a> i <a class="el" href="class_visuals.html#aa499863336b7bb5b6504a903661ce6cc">Visuals</a>.</p>
 
 </div>
 </div>
@@ -177,7 +235,9 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> {}</t
 </table>
 </div><div class="memdoc">
 
-<p>Implementowany w <a class="el" href="class_timeline.html#af9afef5041d31aff5e3c4c5b99294a88">Timeline</a> i <a class="el" href="class_visuals.html#ace540c6c0e1e849082c6e183ca3e49f6">Visuals</a>.</p>
+<p>Wirtualna metoda odpowiedzialna za narysowanie elementu na ekranie. </p>
+
+<p>Implementowany w <a class="el" href="class_bottom_bar.html#a5eaa74a8db9e18bff8578d4122cce7b8">BottomBar</a>, <a class="el" href="class_sidebar.html#a3fcffd3bf37e3b553b1f8d208666918a">Sidebar</a>, <a class="el" href="class_slider.html#a4a3727f40be79a7cc6543086435b8194">Slider</a>, <a class="el" href="class_timeline.html#af9afef5041d31aff5e3c4c5b99294a88">Timeline</a> i <a class="el" href="class_visuals.html#ace540c6c0e1e849082c6e183ca3e49f6">Visuals</a>.</p>
 
 </div>
 </div>
@@ -207,6 +267,15 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> {}</t
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Metoda virtualna służąca do ustawienia elementu względem osi x oraz y. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Pozycja elementu względem osi x </td></tr>
+    <tr><td class="paramname">y</td><td>Pozycja elementu względem osi y </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implementowany w <a class="el" href="class_timeline.html#aebe7334256290c8579fee4361477c5b7">Timeline</a> i <a class="el" href="class_visuals.html#ac7df8f81644fbdad94d4eb569a826bd0">Visuals</a>.</p>
 
@@ -238,6 +307,15 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> {}</t
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Metoda virtualna służąca do ustawienia rozmiaru elementu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>Szerokość elementu </td></tr>
+    <tr><td class="paramname">y</td><td>Wysokość elementu </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implementowany w <a class="el" href="class_timeline.html#af53ce2de0adf65f15767be79670b8270">Timeline</a> i <a class="el" href="class_visuals.html#ab8fe277578282e535b849ef9df4fa5a3">Visuals</a>.</p>
 

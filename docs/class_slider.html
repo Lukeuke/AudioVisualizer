@@ -91,13 +91,18 @@ $(function(){initNavTree('class_slider.html','','class_slider-members'); });
   <div class="headertitle"><div class="title">Dokumentacja klasy Slider<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Element GUI wyświetlający pasek przewijania Pozwala on na to by ilustrować przebieg puszczanego utworu oraz "przechodzić" w czasie z jednego momentu utworu w drugi.  
+ <a href="#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_slider_8h_source.html">Slider.h</a>&gt;</code></p>
 <div class="dynheader">
 Diagram dziedziczenia dla Slider</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_slider.png" usemap="#Slider_map" alt=""/>
   <map id="Slider_map" name="Slider_map">
-<area href="class_gui_element.html" alt="GuiElement" shape="rect" coords="0,0,75,24"/>
+<area href="class_gui_element.html" title="Klasa Bazowa dla kadego elementu GUI tego Klasa ta poprzez wymuszenie definicji metod build() oraz dr..." alt="GuiElement" shape="rect" coords="0,0,75,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -105,38 +110,53 @@ Diagram dziedziczenia dla Slider</div>
 Metody publiczne</h2></td></tr>
 <tr class="memitem:a25c21376bf0dbc2ee1a5117a81337b4a" id="r_a25c21376bf0dbc2ee1a5117a81337b4a"><td class="memItemLeft" align="right" valign="top"><a id="a25c21376bf0dbc2ee1a5117a81337b4a" name="a25c21376bf0dbc2ee1a5117a81337b4a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Slider</b> (unsigned screenWidth, unsigned screenHeight)</td></tr>
+<tr class="memdesc:a25c21376bf0dbc2ee1a5117a81337b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor parametryczny dla elementu <a class="el" href="class_slider.html" title="Element GUI wyświetlający pasek przewijania Pozwala on na to by ilustrować przebieg puszczanego utwor...">Slider</a>. <br /></td></tr>
 <tr class="memitem:aa28d9e9fe8826a306f7ff26b62c1d200" id="r_aa28d9e9fe8826a306f7ff26b62c1d200"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa28d9e9fe8826a306f7ff26b62c1d200">build</a> () override</td></tr>
+<tr class="memdesc:aa28d9e9fe8826a306f7ff26b62c1d200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wirtualna metoda odpowiedzialna za konfigurację, inicjalizację komponentu.  <br /></td></tr>
 <tr class="memitem:a4a3727f40be79a7cc6543086435b8194" id="r_a4a3727f40be79a7cc6543086435b8194"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a3727f40be79a7cc6543086435b8194">draw</a> () override</td></tr>
+<tr class="memdesc:a4a3727f40be79a7cc6543086435b8194"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wirtualna metoda odpowiedzialna za narysowanie elementu na ekranie.  <br /></td></tr>
 <tr class="memitem:a728bb7df1b5fceafb119806ea17c7cbe" id="r_a728bb7df1b5fceafb119806ea17c7cbe"><td class="memItemLeft" align="right" valign="top"><a id="a728bb7df1b5fceafb119806ea17c7cbe" name="a728bb7df1b5fceafb119806ea17c7cbe"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>changeSliderPosition</b> (float x)</td></tr>
 <tr class="memitem:aeb61aabc1c2d2ff2ede6900a8343aba1" id="r_aeb61aabc1c2d2ff2ede6900a8343aba1"><td class="memItemLeft" align="right" valign="top"><a id="aeb61aabc1c2d2ff2ede6900a8343aba1" name="aeb61aabc1c2d2ff2ede6900a8343aba1"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>returnNewVolume</b> ()</td></tr>
 <tr class="inherit_header pub_methods_class_gui_element"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_gui_element')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Metody publiczne dziedziczone z <a class="el" href="class_gui_element.html">GuiElement</a></td></tr>
-<tr class="memitem:a7f69caa76197fb3a0eb6baf2cd2de1c2 inherit pub_methods_class_gui_element" id="r_a7f69caa76197fb3a0eb6baf2cd2de1c2"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>GuiElement</b> (const unsigned screenWidth, const unsigned screenHeight)</td></tr>
+<tr class="memitem:a7f69caa76197fb3a0eb6baf2cd2de1c2 inherit pub_methods_class_gui_element" id="r_a7f69caa76197fb3a0eb6baf2cd2de1c2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_gui_element.html#a7f69caa76197fb3a0eb6baf2cd2de1c2">GuiElement</a> (const unsigned screenWidth, const unsigned screenHeight)</td></tr>
+<tr class="memdesc:a7f69caa76197fb3a0eb6baf2cd2de1c2 inherit pub_methods_class_gui_element"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konstruktor parametryczny klasy <a class="el" href="class_gui_element.html" title="Klasa Bazowa dla kadego elementu GUI tego Klasa ta poprzez wymuszenie definicji metod build() oraz dr...">GuiElement</a>.  <br /></td></tr>
+<tr class="memitem:a6df31d12f9500549da3f537ccdf57285 inherit pub_methods_class_gui_element" id="r_a6df31d12f9500549da3f537ccdf57285"><td class="memItemLeft" align="right" valign="top">
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~GuiElement</b> ()=default</td></tr>
+<tr class="memdesc:a6df31d12f9500549da3f537ccdf57285 inherit pub_methods_class_gui_element"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wirtualny Deskrutor zapewniający odpowiednie usuwanie obiektów klas pochodnych. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Atrybuty publiczne</h2></td></tr>
 <tr class="memitem:a7758cb074ac2ca85b27449ae8d831bfc" id="r_a7758cb074ac2ca85b27449ae8d831bfc"><td class="memItemLeft" align="right" valign="top"><a id="a7758cb074ac2ca85b27449ae8d831bfc" name="a7758cb074ac2ca85b27449ae8d831bfc"></a>
 Rectangle&#160;</td><td class="memItemRight" valign="bottom"><b>sliderRect</b> {}</td></tr>
+<tr class="memdesc:a7758cb074ac2ca85b27449ae8d831bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">właściwości umiejscowienia i rozmiaru elementu <br /></td></tr>
 <tr class="memitem:ae317687913c108f22870b20c602915f7" id="r_ae317687913c108f22870b20c602915f7"><td class="memItemLeft" align="right" valign="top"><a id="ae317687913c108f22870b20c602915f7" name="ae317687913c108f22870b20c602915f7"></a>
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>valueRange</b> {}</td></tr>
+<tr class="memdesc:ae317687913c108f22870b20c602915f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">zakres paska przewijania <br /></td></tr>
 <tr class="memitem:a7b200a0b40a12e111dc8e9822253177f" id="r_a7b200a0b40a12e111dc8e9822253177f"><td class="memItemLeft" align="right" valign="top"><a id="a7b200a0b40a12e111dc8e9822253177f" name="a7b200a0b40a12e111dc8e9822253177f"></a>
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>circlePosition</b> {}</td></tr>
+<tr class="memdesc:a7b200a0b40a12e111dc8e9822253177f"><td class="mdescLeft">&#160;</td><td class="mdescRight">pozycja okręgu <br /></td></tr>
 <tr class="memitem:a23a56b0be6ae5026ed60540c10102201" id="r_a23a56b0be6ae5026ed60540c10102201"><td class="memItemLeft" align="right" valign="top"><a id="a23a56b0be6ae5026ed60540c10102201" name="a23a56b0be6ae5026ed60540c10102201"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>circleRadius</b> = 10</td></tr>
+<tr class="memdesc:a23a56b0be6ae5026ed60540c10102201"><td class="mdescLeft">&#160;</td><td class="mdescRight">promień okręgu <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Dodatkowe dziedziczone składowe</h2></td></tr>
 <tr class="inherit_header pro_attribs_class_gui_element"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_gui_element')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Atrybuty chronione dziedziczone z <a class="el" href="class_gui_element.html">GuiElement</a></td></tr>
 <tr class="memitem:af9513ee2f15febe00bf02a53f7781ad4 inherit pro_attribs_class_gui_element" id="r_af9513ee2f15febe00bf02a53f7781ad4"><td class="memItemLeft" align="right" valign="top">
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>windowSize</b> {}</td></tr>
+<tr class="memdesc:af9513ee2f15febe00bf02a53f7781ad4 inherit pro_attribs_class_gui_element"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozmiar okna. <br /></td></tr>
 <tr class="memitem:a53c6757141e1ea766d714bee1e8e7b3f inherit pro_attribs_class_gui_element" id="r_a53c6757141e1ea766d714bee1e8e7b3f"><td class="memItemLeft" align="right" valign="top">
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> {}</td></tr>
+<tr class="memdesc:a53c6757141e1ea766d714bee1e8e7b3f inherit pro_attribs_class_gui_element"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozmiar elementu. <br /></td></tr>
 <tr class="memitem:ac18be2e67777e900512c6f6a90801a49 inherit pro_attribs_class_gui_element" id="r_ac18be2e67777e900512c6f6a90801a49"><td class="memItemLeft" align="right" valign="top">
 Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> {}</td></tr>
+<tr class="memdesc:ac18be2e67777e900512c6f6a90801a49 inherit pro_attribs_class_gui_element"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pozycja elementu. <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Element GUI wyświetlający pasek przewijania Pozwala on na to by ilustrować przebieg puszczanego utworu oraz "przechodzić" w czasie z jednego momentu utworu w drugi. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
 <a id="aa28d9e9fe8826a306f7ff26b62c1d200" name="aa28d9e9fe8826a306f7ff26b62c1d200"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa28d9e9fe8826a306f7ff26b62c1d200">&#9670;&#160;</a></span>build()</h2>
 
@@ -160,7 +180,9 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> {}</t
 </table>
 </div><div class="memdoc">
 
-<p>Implementuje <a class="el" href="class_gui_element.html">GuiElement</a>.</p>
+<p>Wirtualna metoda odpowiedzialna za konfigurację, inicjalizację komponentu. </p>
+
+<p>Implementuje <a class="el" href="class_gui_element.html#a78975c11ed731f5d900ffcad1ea65fcd">GuiElement</a>.</p>
 
 </div>
 </div>
@@ -187,7 +209,9 @@ Vector2&#160;</td><td class="memItemRight" valign="bottom"><b>position</b> {}</t
 </table>
 </div><div class="memdoc">
 
-<p>Implementuje <a class="el" href="class_gui_element.html">GuiElement</a>.</p>
+<p>Wirtualna metoda odpowiedzialna za narysowanie elementu na ekranie. </p>
+
+<p>Implementuje <a class="el" href="class_gui_element.html#ac0cd9b27f65b09f1a2d5fb200ca8170e">GuiElement</a>.</p>
 
 </div>
 </div>

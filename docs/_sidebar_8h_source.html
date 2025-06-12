@@ -105,63 +105,76 @@ $(function(){initNavTree('_sidebar_8h_source.html','',''); });
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;raylib.h&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;GuiElement.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="class_sidebar.html">   16</a></span><span class="keyword">class </span>Sidebar final : <span class="keyword">public</span> GuiElement {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    Rectangle barRect;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    Color barColor;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    std::vector&lt;std::string&gt; audioFiles;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    Font customFont;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    Sidebar(<span class="keywordtype">unsigned</span> parentWidth, <span class="keywordtype">unsigned</span> parentHeight, <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;fileNames)</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        : GuiElement(parentWidth, parentHeight), audioFiles(fileNames) {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        size = setElementSize(parentWidth, parentHeight);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        position = setElementPosition(0.0f, 0.0f);  <span class="comment">// Left side by default</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="comment">/*barRect = { position.x, position.y, size.x, size.y };</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">        barColor = { 64, 64, 64, 255 }*/</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        customFont = LoadFont(<span class="stringliteral">&quot;assets/fonts/OpenSans-Regular.ttf&quot;</span>);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> build()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="comment">// TODO: Add elements to sidebar</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> draw()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        DrawRectangleRec(barRect, barColor);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> padding = 10.0f;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">float</span> textY = position.y + padding;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; file : audioFiles) {</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            <span class="keyword">constexpr</span> <span class="keywordtype">int</span> fontSize = 16;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            <span class="keywordflow">if</span> (textY + fontSize &gt; position.y + size.y) <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            DrawText(file.c_str(), position.x + padding, textY, 20, WHITE);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="comment">// DrawTextEx(customFont, file.c_str(), { position.x + padding, textY }, 20, 2, WHITE);</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            textY += fontSize + 6;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    ~Sidebar()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        UnloadFont(customFont);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    Vector2 setElementSize(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordflow">return</span> { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(x) * 0.15f, <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y) };  <span class="comment">// 15% width of window</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    Vector2 setElementPosition(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">return</span> { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(x), <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y) };  <span class="comment">// top left</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>};</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_sidebar.html">   19</a></span><span class="keyword">class </span><a class="code hl_function" href="class_sidebar.html#aba0f6642ea790c376eeabcc1a075fe2d">Sidebar</a> final : <span class="keyword">public</span> <a class="code hl_function" href="class_gui_element.html#a7f69caa76197fb3a0eb6baf2cd2de1c2">GuiElement</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    Rectangle barRect;                      </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    Color barColor;                         </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::vector&lt;std::string&gt; audioFiles;    </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    Font customFont;                        </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_sidebar.html#aba0f6642ea790c376eeabcc1a075fe2d">   32</a></span>    <a class="code hl_function" href="class_sidebar.html#aba0f6642ea790c376eeabcc1a075fe2d">Sidebar</a>(<span class="keywordtype">unsigned</span> parentWidth, <span class="keywordtype">unsigned</span> parentHeight, <span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;fileNames)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        : <a class="code hl_function" href="class_gui_element.html#a7f69caa76197fb3a0eb6baf2cd2de1c2">GuiElement</a>(parentWidth, parentHeight), audioFiles(fileNames) {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <a class="code hl_variable" href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">size</a> = setElementSize(parentWidth, parentHeight);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <a class="code hl_variable" href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">position</a> = setElementPosition(0.0f, 0.0f);  </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">/*barRect = { position.x, position.y, size.x, size.y };</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">        barColor = { 64, 64, 64, 255 }*/</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        customFont = LoadFont(<span class="stringliteral">&quot;assets/fonts/OpenSans-Regular.ttf&quot;</span>); </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    }</div>
 </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif </span><span class="comment">//SIDEBAR_H</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_sidebar.html#aff58f973dcbd10dfc95ad87ffec82cde">   46</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sidebar.html#aff58f973dcbd10dfc95ad87ffec82cde">build</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// TODO: Add elements to sidebar</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_sidebar.html#a3fcffd3bf37e3b553b1f8d208666918a">   52</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sidebar.html#a3fcffd3bf37e3b553b1f8d208666918a">draw</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        DrawRectangleRec(barRect, barColor);    </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">constexpr</span> <span class="keywordtype">float</span> padding = 10.0f;        </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">float</span> textY = <a class="code hl_variable" href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">position</a>.y + padding;     </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; file : audioFiles) {   </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keyword">constexpr</span> <span class="keywordtype">int</span> fontSize = 16;        </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="keywordflow">if</span> (textY + fontSize &gt; <a class="code hl_variable" href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">position</a>.y + <a class="code hl_variable" href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">size</a>.y) <span class="keywordflow">break</span>;  </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            DrawText(file.c_str(), <a class="code hl_variable" href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">position</a>.x + padding, textY, 20, WHITE); </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="comment">// DrawTextEx(customFont, file.c_str(), { position.x + padding, textY }, 20, 2, WHITE);</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            textY += fontSize + 6;              </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_sidebar.html#a805ad02f7463dfc193b3193d429fb2b4">   72</a></span>    <a class="code hl_function" href="class_sidebar.html#a805ad02f7463dfc193b3193d429fb2b4">~Sidebar</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        UnloadFont(customFont);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    Vector2 setElementSize(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(x) * 0.15f, <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y) };  <span class="comment">// ustawienie rozmiaru elementu na 15% szerokości okna i 100% wysokości okna</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    Vector2 setElementPosition(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">return</span> { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(x), <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y) };  <span class="comment">// ustawienie pozycji elementu na lewy górny róg</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>};</div>
+</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">#endif </span><span class="comment">//SIDEBAR_H</span></div>
+<div class="ttc" id="aclass_gui_element_html_a53c6757141e1ea766d714bee1e8e7b3f"><div class="ttname"><a href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">GuiElement::size</a></div><div class="ttdeci">Vector2 size</div><div class="ttdoc">Rozmiar elementu.</div><div class="ttdef"><b>Definicja</b> GuiElement.h:14</div></div>
+<div class="ttc" id="aclass_gui_element_html_a7f69caa76197fb3a0eb6baf2cd2de1c2"><div class="ttname"><a href="class_gui_element.html#a7f69caa76197fb3a0eb6baf2cd2de1c2">GuiElement::GuiElement</a></div><div class="ttdeci">GuiElement(const unsigned screenWidth, const unsigned screenHeight)</div><div class="ttdoc">Konstruktor parametryczny klasy GuiElement.</div><div class="ttdef"><b>Definicja</b> GuiElement.h:34</div></div>
+<div class="ttc" id="aclass_gui_element_html_ac18be2e67777e900512c6f6a90801a49"><div class="ttname"><a href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">GuiElement::position</a></div><div class="ttdeci">Vector2 position</div><div class="ttdoc">Pozycja elementu.</div><div class="ttdef"><b>Definicja</b> GuiElement.h:15</div></div>
+<div class="ttc" id="aclass_sidebar_html_a3fcffd3bf37e3b553b1f8d208666918a"><div class="ttname"><a href="class_sidebar.html#a3fcffd3bf37e3b553b1f8d208666918a">Sidebar::draw</a></div><div class="ttdeci">void draw() override</div><div class="ttdoc">nadpisanie metody draw()</div><div class="ttdef"><b>Definicja</b> Sidebar.h:52</div></div>
+<div class="ttc" id="aclass_sidebar_html_a805ad02f7463dfc193b3193d429fb2b4"><div class="ttname"><a href="class_sidebar.html#a805ad02f7463dfc193b3193d429fb2b4">Sidebar::~Sidebar</a></div><div class="ttdeci">~Sidebar() override</div><div class="ttdoc">nadpisanie dekonstruktora klasy GuiElement wyłącza czcionkę z obsługi???</div><div class="ttdef"><b>Definicja</b> Sidebar.h:72</div></div>
+<div class="ttc" id="aclass_sidebar_html_aba0f6642ea790c376eeabcc1a075fe2d"><div class="ttname"><a href="class_sidebar.html#aba0f6642ea790c376eeabcc1a075fe2d">Sidebar::Sidebar</a></div><div class="ttdeci">Sidebar(unsigned parentWidth, unsigned parentHeight, const std::vector&lt; std::string &gt; &amp;fileNames)</div><div class="ttdoc">konstruktor parametryczny klasy Sidebar odpowiedzialny za wstępną konfigurację elementu</div><div class="ttdef"><b>Definicja</b> Sidebar.h:32</div></div>
+<div class="ttc" id="aclass_sidebar_html_aff58f973dcbd10dfc95ad87ffec82cde"><div class="ttname"><a href="class_sidebar.html#aff58f973dcbd10dfc95ad87ffec82cde">Sidebar::build</a></div><div class="ttdeci">void build() override</div><div class="ttdef"><b>Definicja</b> Sidebar.h:46</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -91,12 +91,59 @@ $(function(){initNavTree('class_simple_f_f_t.html','','class_simple_f_f_t-member
   <div class="headertitle"><div class="title">Dokumentacja klasy SimpleFFT</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Klasa odpowiedzialna za Klasa <a class="el" href="class_simple_f_f_t.html" title="Klasa odpowiedzialna za Klasa SimpleFFT implementuje uproszczony algorytm DFT (dyskretnej transformat...">SimpleFFT</a> implementuje uproszczony algorytm DFT (dyskretnej transformaty Fouriera), który przekształca sygnał czasowy (wektor wartości float) na widmo amplitudowe w domenie częstotliwości.  
+ <a href="#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_simple_f_f_t_8h_source.html">SimpleFFT.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Statyczne metody publiczne</h2></td></tr>
-<tr class="memitem:ad8259dcacba5e95ea89bc8ce1eec423f" id="r_ad8259dcacba5e95ea89bc8ce1eec423f"><td class="memItemLeft" align="right" valign="top"><a id="ad8259dcacba5e95ea89bc8ce1eec423f" name="ad8259dcacba5e95ea89bc8ce1eec423f"></a>
-static std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>computeMagnitude</b> (const std::vector&lt; float &gt; &amp;input)</td></tr>
+<tr class="memitem:ad8259dcacba5e95ea89bc8ce1eec423f" id="r_ad8259dcacba5e95ea89bc8ce1eec423f"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8259dcacba5e95ea89bc8ce1eec423f">computeMagnitude</a> (const std::vector&lt; float &gt; &amp;input)</td></tr>
+<tr class="memdesc:ad8259dcacba5e95ea89bc8ce1eec423f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Statyczna metoda obliczająca widmo amplitudowe (moduł wartości zespolonych)  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Klasa odpowiedzialna za Klasa <a class="el" href="class_simple_f_f_t.html" title="Klasa odpowiedzialna za Klasa SimpleFFT implementuje uproszczony algorytm DFT (dyskretnej transformat...">SimpleFFT</a> implementuje uproszczony algorytm DFT (dyskretnej transformaty Fouriera), który przekształca sygnał czasowy (wektor wartości float) na widmo amplitudowe w domenie częstotliwości. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="ad8259dcacba5e95ea89bc8ce1eec423f" name="ad8259dcacba5e95ea89bc8ce1eec423f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8259dcacba5e95ea89bc8ce1eec423f">&#9670;&#160;</a></span>computeMagnitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; float &gt; SimpleFFT::computeMagnitude </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; float &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Statyczna metoda obliczająca widmo amplitudowe (moduł wartości zespolonych) </p>
+<p>&lt; liczba próbek w sygnale</p>
+<p>&lt; wektor wynikowy liczb zespolonych</p>
+<p>&lt; Główna pętla DFT - obliczanie każdej próbki widma w dziedzinie częstotliwości iterując po częstotliwościach</p>
+<p>&lt; Inicjalizacja sumy zespolonej na 0</p>
+<p>&lt; Iteracja po próbkach sygnału czasowego</p>
+<p>&lt; Obliczenie kąta w radianach</p>
+<p>&lt; Dodawnie wartości zespolonej</p>
+<p>&lt; zapisanie wyniku DFT dla częstotliwości k</p>
+<p>&lt; Wektor na wartości amplitudy -&gt; połowa spektrum -&gt; symetria</p>
+<p>&lt; Iteracja przez połowę próbek w sygnale</p>
+<p>&lt; obliczenie modułu liczby zespolonej</p>
+<p>&lt; Zwrócenie wektora z amplitudami częstotliwości</p>
+
+</div>
+</div>
 <hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
 <li>includes/external/<a class="el" href="_simple_f_f_t_8h_source.html">SimpleFFT.h</a></li>
 </ul>

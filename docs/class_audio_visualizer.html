@@ -91,20 +91,142 @@ $(function(){initNavTree('class_audio_visualizer.html','','class_audio_visualize
   <div class="headertitle"><div class="title">Dokumentacja klasy AudioVisualizer</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Bazowa klasa całego programu odpowiadająca za wizualizację dźwięku.  
+ <a href="#details">Więcej...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_audio_visualizer_8h_source.html">AudioVisualizer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Metody publiczne</h2></td></tr>
 <tr class="memitem:a826c29a1d66a1b5ae2333bed1766b813" id="r_a826c29a1d66a1b5ae2333bed1766b813"><td class="memItemLeft" align="right" valign="top"><a id="a826c29a1d66a1b5ae2333bed1766b813" name="a826c29a1d66a1b5ae2333bed1766b813"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
-<tr class="memitem:aa6d121cbb9b3742bcd4960c8b1fa29c9" id="r_aa6d121cbb9b3742bcd4960c8b1fa29c9"><td class="memItemLeft" align="right" valign="top"><a id="aa6d121cbb9b3742bcd4960c8b1fa29c9" name="aa6d121cbb9b3742bcd4960c8b1fa29c9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changeVolume</b> (Music &amp;music, float newVolume)</td></tr>
-<tr class="memitem:a15bb6c738ec7d765cee391878a5ea6c1" id="r_a15bb6c738ec7d765cee391878a5ea6c1"><td class="memItemLeft" align="right" valign="top"><a id="a15bb6c738ec7d765cee391878a5ea6c1" name="a15bb6c738ec7d765cee391878a5ea6c1"></a>
-<a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>withSource</b> (const std::optional&lt; std::string &gt; &amp;source)</td></tr>
-<tr class="memitem:a4d88a23f276e80dc3f133482bb0198a0" id="r_a4d88a23f276e80dc3f133482bb0198a0"><td class="memItemLeft" align="right" valign="top"><a id="a4d88a23f276e80dc3f133482bb0198a0" name="a4d88a23f276e80dc3f133482bb0198a0"></a>
-<a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>withVolume</b> (const unsigned int &amp;volume)</td></tr>
-<tr class="memitem:a12ef9879054b650589aed560968a891a" id="r_a12ef9879054b650589aed560968a891a"><td class="memItemLeft" align="right" valign="top"><a id="a12ef9879054b650589aed560968a891a" name="a12ef9879054b650589aed560968a891a"></a>
-<a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>windowSize</b> (const unsigned int &amp;width, const unsigned int &amp;height)</td></tr>
+<tr class="memdesc:a826c29a1d66a1b5ae2333bed1766b813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Główna metoda uruchamiająca program. <br /></td></tr>
+<tr class="memitem:aa6d121cbb9b3742bcd4960c8b1fa29c9" id="r_aa6d121cbb9b3742bcd4960c8b1fa29c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa6d121cbb9b3742bcd4960c8b1fa29c9">changeVolume</a> (Music &amp;music, float newVolume)</td></tr>
+<tr class="memdesc:aa6d121cbb9b3742bcd4960c8b1fa29c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zmienia głośność odtwarzanego utworu.  <br /></td></tr>
+<tr class="memitem:a15bb6c738ec7d765cee391878a5ea6c1" id="r_a15bb6c738ec7d765cee391878a5ea6c1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15bb6c738ec7d765cee391878a5ea6c1">withSource</a> (const std::optional&lt; std::string &gt; &amp;source)</td></tr>
+<tr class="memdesc:a15bb6c738ec7d765cee391878a5ea6c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia źródło audio.  <br /></td></tr>
+<tr class="memitem:a4d88a23f276e80dc3f133482bb0198a0" id="r_a4d88a23f276e80dc3f133482bb0198a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d88a23f276e80dc3f133482bb0198a0">withVolume</a> (const unsigned int &amp;volume)</td></tr>
+<tr class="memdesc:a4d88a23f276e80dc3f133482bb0198a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia początkową głośność.  <br /></td></tr>
+<tr class="memitem:a12ef9879054b650589aed560968a891a" id="r_a12ef9879054b650589aed560968a891a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12ef9879054b650589aed560968a891a">windowSize</a> (const unsigned int &amp;width, const unsigned int &amp;height)</td></tr>
+<tr class="memdesc:a12ef9879054b650589aed560968a891a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia rozmiar okna aplikacji.  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Bazowa klasa całego programu odpowiadająca za wizualizację dźwięku. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="aa6d121cbb9b3742bcd4960c8b1fa29c9" name="aa6d121cbb9b3742bcd4960c8b1fa29c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6d121cbb9b3742bcd4960c8b1fa29c9">&#9670;&#160;</a></span>changeVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AudioVisualizer::changeVolume </td>
+          <td>(</td>
+          <td class="paramtype">Music &amp;</td>          <td class="paramname"><span class="paramname"><em>music</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>newVolume</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zmienia głośność odtwarzanego utworu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">music</td><td>Referencja do obiektu muzyki. </td></tr>
+    <tr><td class="paramname">newVolume</td><td>Nowa wartość głośności (0.0–1.0). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a12ef9879054b650589aed560968a891a" name="a12ef9879054b650589aed560968a891a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12ef9879054b650589aed560968a891a">&#9670;&#160;</a></span>windowSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> * AudioVisualizer::windowSize </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned int &amp;</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ustawia rozmiar okna aplikacji. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Szerokość okna. </td></tr>
+    <tr><td class="paramname">height</td><td>Wysokość okna. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik do bieżącego obiektu (dla łańcuchowania metod). </dd></dl>
+
+</div>
+</div>
+<a id="a15bb6c738ec7d765cee391878a5ea6c1" name="a15bb6c738ec7d765cee391878a5ea6c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15bb6c738ec7d765cee391878a5ea6c1">&#9670;&#160;</a></span>withSource()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> * AudioVisualizer::withSource </td>
+          <td>(</td>
+          <td class="paramtype">const std::optional&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ustawia źródło audio. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>Opcjonalna ścieżka do pliku audio. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik do bieżącego obiektu (dla łańcuchowania metod). </dd></dl>
+
+</div>
+</div>
+<a id="a4d88a23f276e80dc3f133482bb0198a0" name="a4d88a23f276e80dc3f133482bb0198a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d88a23f276e80dc3f133482bb0198a0">&#9670;&#160;</a></span>withVolume()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_audio_visualizer.html">AudioVisualizer</a> * AudioVisualizer::withVolume </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned int &amp;</td>          <td class="paramname"><span class="paramname"><em>volume</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ustawia początkową głośność. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">volume</td><td>Wartość głośności (0–100). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik do bieżącego obiektu (dla łańcuchowania metod). </dd></dl>
+
+</div>
+</div>
 <hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
 <li>includes/<a class="el" href="_audio_visualizer_8h_source.html">AudioVisualizer.h</a></li>
 <li>src/<b>AudioVisualizer.cpp</b></li>
