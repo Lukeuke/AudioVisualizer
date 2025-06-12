@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['visuals_0',['Visuals',['../class_visuals.html#a4f18cd53a46902799de126214d17f6be',1,'Visuals']]]
+  ['run_0',['run',['../class_audio_visualizer.html#a826c29a1d66a1b5ae2333bed1766b813',1,'AudioVisualizer']]]
 ];

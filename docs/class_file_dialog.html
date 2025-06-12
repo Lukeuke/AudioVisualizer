@@ -99,12 +99,47 @@ $(function(){initNavTree('class_file_dialog.html','','class_file_dialog-members'
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Statyczne metody publiczne</h2></td></tr>
-<tr class="memitem:a7a53d0b57eaef7c9353737b334a8d745" id="r_a7a53d0b57eaef7c9353737b334a8d745"><td class="memItemLeft" align="right" valign="top"><a id="a7a53d0b57eaef7c9353737b334a8d745" name="a7a53d0b57eaef7c9353737b334a8d745"></a>
-static std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>openDialog</b> (const char *fileExtension)</td></tr>
+<tr class="memitem:a7a53d0b57eaef7c9353737b334a8d745" id="r_a7a53d0b57eaef7c9353737b334a8d745"><td class="memItemLeft" align="right" valign="top">static std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a53d0b57eaef7c9353737b334a8d745">openDialog</a> (const char *fileExtension)</td></tr>
+<tr class="memdesc:a7a53d0b57eaef7c9353737b334a8d745"><td class="mdescLeft">&#160;</td><td class="mdescRight">Otwiera systemowe okno dialogowe umożliwiające wybór pliku.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
 <div class="textblock"><p>Klasa odpowiedzialna za dialog do wyboru plików. </p>
-</div><hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a7a53d0b57eaef7c9353737b334a8d745" name="a7a53d0b57eaef7c9353737b334a8d745"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a53d0b57eaef7c9353737b334a8d745">&#9670;&#160;</a></span>openDialog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; std::string &gt; FileDialog::openDialog </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>fileExtension</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Otwiera systemowe okno dialogowe umożliwiające wybór pliku. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fileExtension</td><td>Rozszerzenie filtrowanych plików. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Ścieżka do wybranego pliku. Zwraca std::nullptr, jeśli użytkownik anulował wybór. </dd></dl>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z plików:<ul>
 <li>includes/<a class="el" href="_file_dialog_8h_source.html">FileDialog.h</a></li>
 <li>src/<b>FileDialog.cpp</b></li>
 </ul>

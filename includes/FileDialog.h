@@ -11,6 +11,12 @@
 **/
 class FileDialog {
 public:
+    /**
+     * @brief Otwiera systemowe okno dialogowe umożliwiające wybór pliku.
+     *
+     * @param fileExtension Rozszerzenie filtrowanych plików.
+     * @return Ścieżka do wybranego pliku. Zwraca std::nullptr, jeśli użytkownik anulował wybór.
+     */
     static std::optional<std::string> openDialog(const char* fileExtension);
 };
 

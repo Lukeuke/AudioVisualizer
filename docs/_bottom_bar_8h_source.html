@@ -93,39 +93,49 @@ $(function(){initNavTree('_bottom_bar_8h_source.html','',''); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;../GuiElement.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="foldopen" id="foldopen00004" data-start="{" data-end="};">
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_bottom_bar.html">    4</a></span><span class="keyword">class </span>BottomBar final : <span class="keyword">public</span> GuiElement {</div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>    Rectangle barRect;</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    Color barColor;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    BottomBar(<span class="keywordtype">unsigned</span> parentWidth, <span class="keywordtype">unsigned</span> parentHeight)</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        : GuiElement(parentWidth, parentHeight) {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        size = setElementSize(parentWidth, parentHeight);</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        position = setElementPosition(0.0f, windowSize.y);</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        barRect = { position.x, position.y, size.x, size.y };</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        barColor = { 64, 64, 64, 255 };</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    }</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    Vector2 getSize()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordflow">return</span> size;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    }</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> build() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span></div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_bottom_bar.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="class_bottom_bar.html#aa6584681156f13b047bc4f1475852355">BottomBar</a> final : <span class="keyword">public</span> <a class="code hl_function" href="class_gui_element.html#a7f69caa76197fb3a0eb6baf2cd2de1c2">GuiElement</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    Rectangle barRect;  </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    Color barColor;     </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_bottom_bar.html#aa6584681156f13b047bc4f1475852355">   19</a></span>    <a class="code hl_function" href="class_bottom_bar.html#aa6584681156f13b047bc4f1475852355">BottomBar</a>(<span class="keywordtype">unsigned</span> parentWidth, <span class="keywordtype">unsigned</span> parentHeight)</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        : <a class="code hl_function" href="class_gui_element.html#a7f69caa76197fb3a0eb6baf2cd2de1c2">GuiElement</a>(parentWidth, parentHeight) {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <a class="code hl_variable" href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">size</a> = setElementSize(parentWidth, parentHeight);       </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_variable" href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">position</a> = setElementPosition(0.0f, <a class="code hl_variable" href="class_gui_element.html#af9513ee2f15febe00bf02a53f7781ad4">windowSize</a>.y);      </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> draw() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    Vector2 setElementSize(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(x), <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y) * 0.15f };</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    Vector2 setElementPosition(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">return</span> { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(x), <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y) - size.y };</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        barRect = { <a class="code hl_variable" href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">position</a>.x, <a class="code hl_variable" href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">position</a>.y, <a class="code hl_variable" href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">size</a>.x, <a class="code hl_variable" href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">size</a>.y };   </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        barColor = { 64, 64, 64, 255 };                         </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
 </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="class_bottom_bar.html#a631426353cbacf5b543337802e61bcd0">   31</a></span>    Vector2 <a class="code hl_function" href="class_bottom_bar.html#a631426353cbacf5b543337802e61bcd0">getSize</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">size</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_bottom_bar.html#abf65ff8514af7cc526f1362096fb1703">build</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_bottom_bar.html#a5eaa74a8db9e18bff8578d4122cce7b8">draw</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    Vector2 setElementSize(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(x), <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y) * 0.15f };</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    Vector2 setElementPosition(<span class="keywordtype">unsigned</span> x, <span class="keywordtype">unsigned</span> y)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> { <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(x), <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(y) - <a class="code hl_variable" href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">size</a>.y };</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
+</div>
+<div class="ttc" id="aclass_bottom_bar_html_a5eaa74a8db9e18bff8578d4122cce7b8"><div class="ttname"><a href="class_bottom_bar.html#a5eaa74a8db9e18bff8578d4122cce7b8">BottomBar::draw</a></div><div class="ttdeci">void draw() override</div><div class="ttdoc">nadpisanie metody wirtualnej draw dziedziczonej z klasy GuiElement</div><div class="ttdef"><b>Definicja</b> BottomBar.cpp:12</div></div>
+<div class="ttc" id="aclass_bottom_bar_html_a631426353cbacf5b543337802e61bcd0"><div class="ttname"><a href="class_bottom_bar.html#a631426353cbacf5b543337802e61bcd0">BottomBar::getSize</a></div><div class="ttdeci">Vector2 getSize() const</div><div class="ttdoc">metoda zwracająca rozmiar elementu</div><div class="ttdef"><b>Definicja</b> BottomBar.h:31</div></div>
+<div class="ttc" id="aclass_bottom_bar_html_aa6584681156f13b047bc4f1475852355"><div class="ttname"><a href="class_bottom_bar.html#aa6584681156f13b047bc4f1475852355">BottomBar::BottomBar</a></div><div class="ttdeci">BottomBar(unsigned parentWidth, unsigned parentHeight)</div><div class="ttdoc">Konstruktor klasy BottomBar.</div><div class="ttdef"><b>Definicja</b> BottomBar.h:19</div></div>
+<div class="ttc" id="aclass_bottom_bar_html_abf65ff8514af7cc526f1362096fb1703"><div class="ttname"><a href="class_bottom_bar.html#abf65ff8514af7cc526f1362096fb1703">BottomBar::build</a></div><div class="ttdeci">void build() override</div><div class="ttdoc">nadpisanie metody draw dziedziczonej z klasy GuiElement</div><div class="ttdef"><b>Definicja</b> BottomBar.cpp:8</div></div>
+<div class="ttc" id="aclass_gui_element_html_a53c6757141e1ea766d714bee1e8e7b3f"><div class="ttname"><a href="class_gui_element.html#a53c6757141e1ea766d714bee1e8e7b3f">GuiElement::size</a></div><div class="ttdeci">Vector2 size</div><div class="ttdoc">Rozmiar elementu.</div><div class="ttdef"><b>Definicja</b> GuiElement.h:14</div></div>
+<div class="ttc" id="aclass_gui_element_html_a7f69caa76197fb3a0eb6baf2cd2de1c2"><div class="ttname"><a href="class_gui_element.html#a7f69caa76197fb3a0eb6baf2cd2de1c2">GuiElement::GuiElement</a></div><div class="ttdeci">GuiElement(const unsigned screenWidth, const unsigned screenHeight)</div><div class="ttdoc">Konstruktor parametryczny klasy GuiElement.</div><div class="ttdef"><b>Definicja</b> GuiElement.h:34</div></div>
+<div class="ttc" id="aclass_gui_element_html_ac18be2e67777e900512c6f6a90801a49"><div class="ttname"><a href="class_gui_element.html#ac18be2e67777e900512c6f6a90801a49">GuiElement::position</a></div><div class="ttdeci">Vector2 position</div><div class="ttdoc">Pozycja elementu.</div><div class="ttdef"><b>Definicja</b> GuiElement.h:15</div></div>
+<div class="ttc" id="aclass_gui_element_html_af9513ee2f15febe00bf02a53f7781ad4"><div class="ttname"><a href="class_gui_element.html#af9513ee2f15febe00bf02a53f7781ad4">GuiElement::windowSize</a></div><div class="ttdeci">Vector2 windowSize</div><div class="ttdoc">Rozmiar okna.</div><div class="ttdef"><b>Definicja</b> GuiElement.h:13</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
