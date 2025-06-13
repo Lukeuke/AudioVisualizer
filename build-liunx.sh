@@ -7,7 +7,7 @@ else
     cmake --build build
 fi
 
-exePath="./build/bin/Debug/AudioVisualizer"
+exePath="./build/bin/AudioVisualizer"
 
 if [ -x "$exePath" ]; then
     "$exePath"
